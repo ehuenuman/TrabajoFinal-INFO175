@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'formPelicula.ui'
 #
-# Created: Fri Jul 11 23:45:51 2014
+# Created: Sat Jul 12 02:31:35 2014
 #      by: pyside-uic 0.2.13 running on PySide 1.1.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -22,6 +22,7 @@ class Ui_FormularioPelicula(object):
         self.stackedWidget.setFrameShadow(QtGui.QFrame.Plain)
         self.stackedWidget.setObjectName("stackedWidget")
         self.datosPelicula = QtGui.QWidget()
+        self.datosPelicula.setEnabled(True)
         self.datosPelicula.setObjectName("datosPelicula")
         self.verticalLayout_5 = QtGui.QVBoxLayout(self.datosPelicula)
         self.verticalLayout_5.setObjectName("verticalLayout_5")
@@ -136,6 +137,7 @@ class Ui_FormularioPelicula(object):
         self.verticalLayout_2.addWidget(self.widget_3)
         self.imagenLabel = QtGui.QLabel(self.widget_5)
         self.imagenLabel.setMinimumSize(QtCore.QSize(200, 240))
+        self.imagenLabel.setMaximumSize(QtCore.QSize(200, 240))
         self.imagenLabel.setText("")
         self.imagenLabel.setPixmap(QtGui.QPixmap("ImgProductos/No Imagen.png"))
         self.imagenLabel.setScaledContents(True)
@@ -157,7 +159,7 @@ class Ui_FormularioPelicula(object):
         self.nuevaImagenButton.setMaximumSize(QtCore.QSize(40, 40))
         self.nuevaImagenButton.setText("")
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("TrabajoFinal-INFO175/imgInterfaz/buscarImagen1.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap("imgInterfaz/buscarImagen1.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.nuevaImagenButton.setIcon(icon)
         self.nuevaImagenButton.setIconSize(QtCore.QSize(30, 30))
         self.nuevaImagenButton.setObjectName("nuevaImagenButton")
@@ -168,7 +170,7 @@ class Ui_FormularioPelicula(object):
         self.borrarImagenButton.setMaximumSize(QtCore.QSize(40, 40))
         self.borrarImagenButton.setText("")
         icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap("TrabajoFinal-INFO175/imgInterfaz/eliminarImagen1.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon1.addPixmap(QtGui.QPixmap("imgInterfaz/eliminarImagen1.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.borrarImagenButton.setIcon(icon1)
         self.borrarImagenButton.setIconSize(QtCore.QSize(30, 30))
         self.borrarImagenButton.setObjectName("borrarImagenButton")
@@ -272,7 +274,8 @@ class Ui_FormularioPelicula(object):
         self.verticalLayout_6.addWidget(self.stackedWidget)
 
         self.retranslateUi(FormularioPelicula)
-        self.stackedWidget.setCurrentIndex(1)
+        self.stackedWidget.setCurrentIndex(0)
+        QtCore.QObject.connect(self.cancelarButton, QtCore.SIGNAL("clicked()"), FormularioPelicula.close)
         QtCore.QMetaObject.connectSlotsByName(FormularioPelicula)
         FormularioPelicula.setTabOrder(self.nombreLineEdit, self.estrenoLineEdit)
         FormularioPelicula.setTabOrder(self.estrenoLineEdit, self.directorLineEdit)
@@ -303,7 +306,7 @@ class Ui_FormularioPelicula(object):
         self.elencoButton.setText(QtGui.QApplication.translate("FormularioPelicula", "Modificar Elenco", None, QtGui.QApplication.UnicodeUTF8))
         self.agregarButton.setText(QtGui.QApplication.translate("FormularioPelicula", "&Agregar", None, QtGui.QApplication.UnicodeUTF8))
         self.cancelarButton.setText(QtGui.QApplication.translate("FormularioPelicula", "&Cancelar", None, QtGui.QApplication.UnicodeUTF8))
-        self.label_3.setText(QtGui.QApplication.translate("FormularioPelicula", "<html><head/><body><p align=\"center\">Seleccione un actor, designele su rol y describalo previamente antes de grabar. Ya guardado el actor ingresado puede continuar añadiendo actores a la pelicula tantas veces quiera. Cuando haya finalizado la asignación de roles presione terminar para continuar con en ingreso de la pelicula.</p></body></html>", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_3.setText(QtGui.QApplication.translate("FormularioPelicula", "<html><head/><body><p align=\"center\">Seleccione un actor, desígnele su rol y descríbalo previamente antes de grabar. Ya guardado el actor ingresado puede continuar añadiendo actores a la película tantas veces quiera. Cuando haya finalizado la asignación de roles presione terminar para continuar con en ingreso de la película.</p></body></html>", None, QtGui.QApplication.UnicodeUTF8))
         self.groupBox_4.setTitle(QtGui.QApplication.translate("FormularioPelicula", "Elenco para ", None, QtGui.QApplication.UnicodeUTF8))
         self.groupBox_2.setTitle(QtGui.QApplication.translate("FormularioPelicula", "Actor", None, QtGui.QApplication.UnicodeUTF8))
         self.groupBox.setTitle(QtGui.QApplication.translate("FormularioPelicula", "Rol del actor", None, QtGui.QApplication.UnicodeUTF8))

@@ -36,7 +36,7 @@ def obtenerPelicula(nombre=None):
 
 def actoresDePelicula(id_pelicula):
     pk = ActorPelicula.actoresDePelicula(id_pelicula)
-
+    print type(pk)
     pkActores = list()
     for i, data in enumerate(pk):
         pkActores.append(data[0])
