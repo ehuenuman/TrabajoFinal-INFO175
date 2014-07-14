@@ -364,7 +364,7 @@ class ActorPelicula(object):
         Guarda el objeto en la base de datos.
         Utiliza un insert o update según Corresponda
         """
-        if self.fk_id_actor is None:
+        if self.fk_id_actor is not None:
             self.fk_id_actor = self.insert()
         else:
             print "else"
@@ -396,7 +396,7 @@ class ActorPelicula(object):
         query += "SET fk_id_pelicula = ?, "
         query += "personaje = ?, "
         query += "descripcion_rol = ? "
-        query += "WHERE fk_id_actor = ?, "
+        query += "WHERE fk_id_actor = ? "
         try:
             conn = connect()
             conn.execute(
