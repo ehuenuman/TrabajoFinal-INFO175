@@ -9,11 +9,7 @@ import controller
 
 class FormularioPelicula (QtGui.QDialog):
     """
-<<<<<<< HEAD
     Clase que muestra la interfaz para el formulario de películas,
-=======
-    Clase que modela muestra la interfaz para el formulario de películas,
->>>>>>> 73fa671f5ed411ea3518b1d9dd52019beef4dd27
     trabaja con la interacción usuario-interfaz.
     """
     def __init__(self):
@@ -41,8 +37,7 @@ class FormularioPelicula (QtGui.QDialog):
         self.ui.elencoButton.clicked.connect(self.elenco)
         self.ui.terminarElencoButton.clicked.connect(self.pelicula)
         self.ui.nuevaImagenButton.clicked.connect(self.examinarImagen)
-<<<<<<< HEAD
-=======
+
         self.ui.agregarButton.clicked.connect(self.loadPelicula)
         self.ui.grabarElencoButton.clicked.connect(self.grabar)
         self.ui.cancelarButton.clicked.connect(self.reject)
@@ -87,7 +82,6 @@ class FormularioPelicula (QtGui.QDialog):
         else:
             controller.crearPelicula(self.ui.nombreLineEdit.text(), self.ui.estrenoLineEdit.text(), self.ui.directorLineEdit.text(), self.ui.paisLineEdit.text(), self.ui.tramaPlainTextEdit.toPlainText(), ac)
             self.reject()
->>>>>>> 73fa671f5ed411ea3518b1d9dd52019beef4dd27
 
     def elenco(self):
         """Cambia a la pestaña elenco al presionar el botón para editarlo."""
