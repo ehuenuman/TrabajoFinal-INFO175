@@ -69,5 +69,26 @@ def crearActor(nombre, codigo, semestre, area):
     nuevo.area = area
     nuevo.save()
 
+def crearPelicula(nombre, ano, director, pais, trama, actores):
+    nuevo = Pelicula()
+    nuevo.nombre = nombre
+    nuevo.estreno = ano
+    nuevo.director = director
+    nuevo.pais = pais
+    nuevo.descripcion = trama
+    nuevo.actores = actores
+    nuevo.save()
+
+def crearActorPelicula(id_actor,id_peli,personaje,descripcion):
+    nuevo = ActorPelicula()
+    nuevo.fk_id_actor = id_actor
+    nuevo.fk_id_pelicula = id_peli
+    nuevo.personaje = personaje
+    nuevo.descripcion = descripcion
+#    print nuevo.fk_id_actor
+    nuevo.save()
+
+
 if __name__ == "__main__":
-    actoresDePelicula(5)
+#    actoresDePelicula(5)
+    crearActorPelicula(1,5,"c","d")
