@@ -9,7 +9,11 @@ import controller
 
 class FormularioPelicula (QtGui.QDialog):
     """
+<<<<<<< HEAD
     Clase que muestra la interfaz para el formulario de películas,
+=======
+    Clase que modela muestra la interfaz para el formulario de películas,
+>>>>>>> 73fa671f5ed411ea3518b1d9dd52019beef4dd27
     trabaja con la interacción usuario-interfaz.
     """
     def __init__(self):
@@ -37,6 +41,53 @@ class FormularioPelicula (QtGui.QDialog):
         self.ui.elencoButton.clicked.connect(self.elenco)
         self.ui.terminarElencoButton.clicked.connect(self.pelicula)
         self.ui.nuevaImagenButton.clicked.connect(self.examinarImagen)
+<<<<<<< HEAD
+=======
+        self.ui.agregarButton.clicked.connect(self.loadPelicula)
+        self.ui.grabarElencoButton.clicked.connect(self.grabar)
+        self.ui.cancelarButton.clicked.connect(self.reject)
+
+    def grabar(self):
+        ac = ""
+        rol = self.ui.rolLineEdit.text()
+        info = self.ui.infoRolPlainTextEdit.toPlainText()
+        valido = rol.isalpha()
+        valido2 = info.isalpha()
+        if (valido is False or valido2 is False):
+            correctoQMessageBox = QtGui.QMessageBox()
+            correctoQMessageBox.setWindowTitle("ERROR!")
+            correctoQMessageBox.setText(u"""Campo ingresado incorrectamente.
+                                        \nIntente nuevamente!""")
+            correctoQMessageBox.exec_()
+        else:
+            ac = str(self.ui.actoresComboBox.currentText())
+            actores = controller.actor()
+            j=5
+            for data in enumerate(actores):
+                row = data[1]
+                if ac == row[1]:
+                    controller.crearActorPelicula(row[0], j, rol, info)
+        return ac
+
+    def loadPelicula(self):
+        """Carga una pelicula en la base de datos desde la interfaz"""
+        ac = str(self.ui.actoresComboBox.currentText())
+        print ac
+
+        valido = self.ui.nombreLineEdit.text().isalpha()
+        valido2 = self.ui.estrenoLineEdit.text().isdigit()
+        valido3 = self.ui.directorLineEdit.text().isalpha()
+        valido4 = self.ui.paisLineEdit.text().isalpha()
+        if(valido is False or valido2 is False or valido3 is False or valido4 is False):
+            correctoQMessageBox = QtGui.QMessageBox()
+            correctoQMessageBox.setWindowTitle("ERROR!")
+            correctoQMessageBox.setText(u"""Campo ingresado incorrectamente.
+                                        \nIntente nuevamente!""")
+            correctoQMessageBox.exec_()
+        else:
+            controller.crearPelicula(self.ui.nombreLineEdit.text(), self.ui.estrenoLineEdit.text(), self.ui.directorLineEdit.text(), self.ui.paisLineEdit.text(), self.ui.tramaPlainTextEdit.toPlainText(), ac)
+            self.reject()
+>>>>>>> 73fa671f5ed411ea3518b1d9dd52019beef4dd27
 
     def elenco(self):
         """Cambia a la pestaña elenco al presionar el botón para editarlo."""
@@ -48,7 +99,11 @@ class FormularioPelicula (QtGui.QDialog):
 
     def examinarImagen(self):
         """
+<<<<<<< HEAD
         Habre un nueva ventana donde le permite al usuario buscar imagenes
+=======
+        Habre un neva ventana donde le permite al usuario buscar imagenes
+>>>>>>> 73fa671f5ed411ea3518b1d9dd52019beef4dd27
         *.jpg o *.png para asignarlas a un actor o película.
         """
         nueva_imagen = QtGui.QFileDialog.getOpenFileNames(self,

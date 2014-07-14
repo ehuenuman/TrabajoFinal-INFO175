@@ -124,5 +124,27 @@ def almacenarImagen(origen_imagen, nuevo_nombre):
     destino_imagen = "{0}{1}".format(nuevo_nombre, extension)
     shutil.copy(origen_imagen, destino_imagen)
 
+
+def crearPelicula(nombre, ano, director, pais, trama, actores):
+    nuevo = Pelicula()
+    nuevo.nombre = nombre
+    nuevo.estreno = ano
+    nuevo.director = director
+    nuevo.pais = pais
+    nuevo.descripcion = trama
+    nuevo.actores = actores
+    nuevo.save()
+
+
+def crearActorPelicula(id_actor, id_peli, personaje, descripcion):
+    nuevo = ActorPelicula()
+    nuevo.fk_id_actor = id_actor
+    nuevo.fk_id_pelicula = id_peli
+    nuevo.personaje = personaje
+    nuevo.descripcion = descripcion
+#    print nuevo.fk_id_actor
+    nuevo.save()
+
+
 if __name__ == "__main__":
     pass
