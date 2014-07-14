@@ -57,7 +57,7 @@ class Actor(object):
     def __init__(
             self,
             id_actor=None,
-            nombre="",
+            nombre=None,
             nacimiento="",
             genero="",
             imagen=""):
@@ -415,6 +415,7 @@ class ActorPelicula(object):
         except sqlite3.Error as e:
             print "An error occurred:", e.args[0]
             return None
+
     @classmethod
     def peliculasDelActor(cls, id_actor):
         """
@@ -469,20 +470,20 @@ if __name__ == "__main__":
     #actores = Actor.all()
     #print actores
 
-    actorPelicula = ActorPelicula.actoresDeLaPelicula(5)
-    print type(actorPelicula)
-    print len(actorPelicula)
-    print actorPelicula
-    row = actorPelicula[0]
-    print row[0]
+    #actorPelicula = ActorPelicula.actoresDeLaPelicula(5)
+    #print type(actorPelicula)
+    #print len(actorPelicula)
+    #print actorPelicula
+    #row = actorPelicula[0]
+    #print row[0]
 
-    print "---------------------------"
-    actores = Actor.actores([1, 2, 3])
-    print actores
+    #print "---------------------------"
+    #actores = Actor.actores([1, 2, 3])
+    #print actores
 
-    print "---------------------------"
-    prueba = ActorPelicula(None, 5)
-    print prueba.fk_id_actor
+    #print "---------------------------"
+    #prueba = ActorPelicula(None, 5)
+    #print prueba.fk_id_actor
 
     # Obtener toda la lista alumnos
     #Pelicula.all()
@@ -490,8 +491,8 @@ if __name__ == "__main__":
     #a = Actor()
     #a.nombre = u"Hola"
     #a.nacimiento = u"Ayer"
-    #a.genero = "Miedo"
-    #a.imagen = u"Ciencias de la computación"
+    #a.genero = u"Femenino"
+    #a.imagen = u"Ciencias de la computación.jpg"
     #a.save()
 
     # Actualizar un curso por codigo
