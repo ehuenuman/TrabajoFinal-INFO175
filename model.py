@@ -43,7 +43,7 @@ class Actor(object):
     Una instancia de esta clase representa a una fila.
     La instancia (objeto) puede estar en BD o no.
     El método save de la clase inserta o actualiza el registro según
-    Corresponda
+    corresponda.
     Los atributos de la clase deben tener correspondencia con la BD
     (Nombres y tipos de datos)
     """
@@ -57,7 +57,7 @@ class Actor(object):
     def __init__(
             self,
             id_actor=None,
-            nombre="",
+            nombre=None,
             nacimiento="",
             genero="",
             imagen=""):
@@ -76,7 +76,7 @@ class Actor(object):
 
     def load(self, nombre=None):
         """
-        Carga un curso de la base de datos por id_actor o codigo
+        Carga un actor de la base de datos por id_actor o nombre
         """
         conn = connect()
         query = "SELECT * FROM actor"
@@ -170,28 +170,17 @@ class Actor(object):
             return False
 
     @classmethod
-    def all(cls):
-        """
-        Método utlizado para obtener la colección completa de filas
-        en la tabla cursos.
-        Este método al ser de clase no necesita una instancia (objeto)
-        Sólo basta con invocarlo desde la clase
-        """
-        query = "SELECT * FROM {}".format(cls.__tablename__)
-        try:
-            conn = connect()
-            result = conn.execute(query)
-            data = result.fetchall()
-
-            return data
-
-        except sqlite3.Error as e:
-            print "An error occurred:", e.args[0]
-            return None
-
-    @classmethod
     def actores(cls, pkActor):
         """
+        Busca en la base de datos la información de varios actores.
+        Desde una lista con los PK de los actores realiza la busqueda generando
+        una nueva lista con la info de dichos actores.
+
+        @param pkActor:
+            Lista de los Promary Key de los actores a consultar.
+        @return data:
+            Lista donde esta almacenada la información de todos los actores
+            consultados.
         """
         data = list()
 
@@ -205,6 +194,26 @@ class Actor(object):
             data.append(actor)
 
         return data
+
+    @classmethod
+    def all(cls):
+        """
+        Método utlizado para obtener la colección completa de filas
+        en la tabla cursos.
+        Este método al ser de clase no necesita una instancia (objeto)
+        Sólo basta con invocaractoresDePelicula()lo desde la clase
+        """
+        query = "SELECT * FROM {}".format(cls.__tablename__)
+        try:
+            conn = connect()
+            result = conn.execute(query)
+            data = result.fetchall()
+
+            return data
+
+        except sqlite3.Error as e:
+            print "An error occurred:", e.args[0]
+            return None
 
 
 class Pelicula(object):
@@ -302,6 +311,32 @@ class Pelicula(object):
             print "La pelicula no existe"
 
     @classmethod
+    def peliculas(cls, pkPeliculas):
+        """
+        Busca en la base de datos la información de varias películas.
+        Desde una lista con los PK de las películas realiza la busqueda
+        generando una nueva lista con la info de dichas películas.
+
+        @param pkPeliculas:
+            Lista de los Primary Key de las películas a consultar.
+        @return data:
+            Lista donde esta almacenada la información de todas las películas
+            consultadas.
+        """
+        data = list()
+
+        for i in pkPeliculas:
+            query = "SELECT * FROM {}".format(cls.__tablename__)
+            query += " WHERE id_pelicula = {}".format(i)
+
+            conn = connect()
+            result = conn.execute(query)
+            actor = result.fetchall()
+            data.append(actor)
+
+        return data
+
+    @classmethod
     def all(cls):
         """
         Método utlizado para obtener la colección completa de filas
@@ -357,7 +392,6 @@ class ActorPelicula(object):
         elif fk_id_pelicula is not None:
             # Buscamos Actores
             self.load(fk_id_pelicula=fk_id_pelicula)
-
 
     def save(self):
         """
@@ -444,8 +478,16 @@ class ActorPelicula(object):
             print "No existe el registro"
 
     @classmethod
-    def actoresDePelicula(cls, id_pelicula):
+    def actoresDeLaPelicula(cls, id_pelicula):
         """
+        Retorna todas los Primary Key de los actores que participan en una
+        misma pelicula buscada.
+
+        @param id_pelicula:
+            Primary Key de la película a la que le buscamos los actores.
+        @return data:
+            Tabla con los Primary Key de los actores participantes en la
+            película buscada.
         """
         query = "SELECT fk_id_actor FROM {}".format(cls.__tablename__)
         query += " WHERE fk_id_pelicula = {}".format(id_pelicula)
@@ -458,6 +500,31 @@ class ActorPelicula(object):
 
         except sqlite3.Error as e:
             print "An error occurred:", e.args[0]
+            return None
+
+    @classmethod
+    def peliculasDelActor(cls, id_actor):
+        """
+        Retorna todas los Primary Key de las películas en las que participa el
+        un mismo actor.
+
+        @param id_actor:
+            Primary Key del actor al que se le buscan las películas.
+        @return data:
+            Tabla con los Primary Key de las películas en las que participo el
+            actor al que se le buscaban las películas.
+        """
+        query = "SELECT fk_id_pelicula FROM {}".format(cls.__tablename__)
+        query += " WHERE fk_id_actor = {}".format(id_actor)
+        try:
+            conn = connect()
+            result = conn.execute(query)
+            data = result.fetchall()
+
+            return data
+
+        except sqlite3.Error as e:
+            print "A Ocurrido un Error!:", e.args[0]
             return None
 
     @classmethod
@@ -489,40 +556,45 @@ if __name__ == "__main__":
     #actores = Actor.all()
     #print actores
 
-    actorPelicula = ActorPelicula.actoresDePelicula(5)
-    print type(actorPelicula)
-    print len(actorPelicula)
-    print actorPelicula
-    row = actorPelicula[0]
-    print row[0]
+    #actorPelicula = ActorPelicula.actoresDeLaPelicula(5)
+    #print type(actorPelicula)
+    #print len(actorPelicula)
+    #print actorPelicula
+    #row = actorPelicula[0]
+    #print row[0]
 
-    print "---------------------------"
-    actores = Actor.actores([1, 2, 3])
-    print actores
+    #print "---------------------------"
+    #actores = Actor.actores([1, 2, 3])
+    #print actores
+
+    #print "---------------------------"
+    #prueba = ActorPelicula(None, 5)
+    #print prueba.fk_id_actor
 
     # Obtener toda la lista alumnos
     #Pelicula.all()
     # Crear un nuevo curso
-    a = Actor()
-    a.nombre = u"Hola"
-    a.nacimiento = u"Ayer"
-    a.genero = "Miedo"
-    a.imagen = u"Ciencias de la computación"
+
+    #a = Actor()
+    #a.nombre = u"Hola"
+    #a.nacimiento = u"Ayer"
+    #a.genero = u"Femenino"
+    #a.imagen = u"Ciencias de la computación.jpg"
     #a.save()
-    actores= Actor.all()
+    #actores = Actor.all()
     #print actores
 
-    p = Pelicula()
-    p.nombre = u"a"
-    p.estreno = u"b"
-    p.director = u"c"
-    p.pais = u"d"
-    p.descripcion = u"e"
-    p.actores = u"f"
-    p.save()
-    peliculas = Pelicula.all()
-    print "-----------------------------------"
-    print peliculas
+    #p = Pelicula()
+    #p.nombre = u"a"
+    #p.estreno = u"b"
+    #p.director = u"c"
+    #p.pais = u"d"
+    #p.descripcion = u"e"
+    #p.actores = u"f"
+    #p.save()
+    #peliculas = Pelicula.all()
+    #print "-----------------------------------"
+    #print peliculas
     # Actualizar un curso por codigo
     #b = Curso(codigo=u"INFO010")
     # En este momento el objeto a y b representan la misma fila en la BD
