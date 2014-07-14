@@ -8,6 +8,8 @@ que información enviar a ésta.
 """
 
 from model import Actor, Pelicula, ActorPelicula
+import shutil
+import os
 
 
 def actor():
@@ -69,22 +71,80 @@ def buscarPeliculas(pkPeliculas):
     return peliculas
 
 
-def crearActor(nombre, codigo, semestre, area):
+def crearActor(nombre, nacimiento, genero, imagen):
     """
-    Método que crea un curso. Lo correcto sería validar
-    que toda la información es correcta
-    Ej:
-        - Semestre puede ser 1 o 2
-        - Los códigos podrían tener un formato predefinido
-        - Etc
+    Método que crea un actor.
+    Valida la información recibida.
+    @param nombre del actor
+    @param fecha de nacimiento del actor
+    @genero masculino o femenino
+    @imagen dirección de la imagen que contiene al actor
     """
     nuevo = Actor()
+
+    if len(nombre.strip()) is 0:
+        mensaje = u"Ingrese nombre del actor"
+        return mensaje
+    if nombre.strip().replace(" ", "").isalpha() is False:
+        mensaje = u"Nombre del actor no valido"
+        return mensaje
+    nombre = nombre.strip()
     nuevo.nombre = nombre
-    # Aquí podrían haber validaciones para el codigo
-    nuevo.codigo = codigo
-    nuevo.semetre = semestre
-    nuevo.area = area
+
+    if "Mes" in nacimiento:
+        mensaje = u"Ingrese mes de cumpleaños."
+        return mensaje
+    nuevo.nacimiento = nacimiento
+
+    if "No definido o.O" in genero:
+        mensaje = u"Especifique el genero del actor"
+        return mensaje
+    nuevo.genero = genero
+
+    nuevo.imagen = imagen
+
     nuevo.save()
+
+    # Procedemos a guardar la imagen en su directorio correspondiente
+    id_actor = nuevo.id_actor[0]
+    nuevaImagen = "imgActor/{}".format(id_actor)
+    almacenarImagen(imagen, nuevaImagen)
+
+    return True
+
+
+def almacenarImagen(origen_imagen, nuevo_nombre):
+    """
+    Función que guarda la imagen para utilizarla a futuro.
+    @param origen_imagen Dirección de la imagen que selecciono el usuario
+    @param nuevo_nombre Dirección donde almacera la imagen seleccionada
+    """
+    info = os.path.splitext(origen_imagen)
+    extension = info[1]
+    destino_imagen = "{0}{1}".format(nuevo_nombre, extension)
+    shutil.copy(origen_imagen, destino_imagen)
+
+
+def crearPelicula(nombre, ano, director, pais, trama, actores):
+    nuevo = Pelicula()
+    nuevo.nombre = nombre
+    nuevo.estreno = ano
+    nuevo.director = director
+    nuevo.pais = pais
+    nuevo.descripcion = trama
+    nuevo.actores = actores
+    nuevo.save()
+
+
+def crearActorPelicula(id_actor, id_peli, personaje, descripcion):
+    nuevo = ActorPelicula()
+    nuevo.fk_id_actor = id_actor
+    nuevo.fk_id_pelicula = id_peli
+    nuevo.personaje = personaje
+    nuevo.descripcion = descripcion
+#    print nuevo.fk_id_actor
+    nuevo.save()
+
 
 if __name__ == "__main__":
     pass

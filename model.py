@@ -57,7 +57,7 @@ class Actor(object):
     def __init__(
             self,
             id_actor=None,
-            nombre="",
+            nombre=None,
             nacimiento="",
             genero="",
             imagen=""):
@@ -249,6 +249,39 @@ class Pelicula(object):
         if nombre is not None:
             self.load(nombre=nombre)
 
+    def save(self):
+        """
+        Guarda el objeto en la base de datos.
+        Utiliza un insert o update según Corresponda
+        """
+        if self.id_pelicula is None:
+            self.id_pelicula = self.insert()
+        else:
+            pass
+
+    def insert(self):
+        query = "INSERT INTO {0} ".format(self.__tablename__)
+        # La pk está definida como auto increment en el modelo
+        query += "(nombre, estreno, director, pais, actores, description) "
+        query += "VALUES (?, ?, ?, ?, ?, ?)"
+        try:
+            conn = connect()
+            result = conn.execute(
+                query, [
+                    self.nombre,
+                    self.estreno,
+                    self.director,
+                    self.pais,
+                    self.actores,
+                    self.descripcion])
+            conn.commit()
+#            id_actor = last_id(conn)
+            conn.close()
+#            return id_actor
+        except sqlite3.Error as e:
+            print "An error occurred:", e.args[0]
+            return None
+
     def load(self, nombre=None):
         """
         Carga la información completa de una pelicula desde la base de datos
@@ -360,6 +393,59 @@ class ActorPelicula(object):
             # Buscamos Actores
             self.load(fk_id_pelicula=fk_id_pelicula)
 
+    def save(self):
+        """
+        Guarda el objeto en la base de datos.
+        Utiliza un insert o update según Corresponda
+        """
+        if self.fk_id_actor is not None:
+            self.fk_id_actor = self.insert()
+        else:
+            print "else"
+            self.__update()
+
+    def insert(self):
+        query = "INSERT INTO {0} ".format(self.__tablename__)
+        # La pk está definida como auto increment en el modelo
+        query += "(fk_id_actor, fk_id_pelicula, personaje, descripcion_rol) "
+        query += "VALUES (?, ?, ?, ?)"
+        try:
+            conn = connect()
+            result = conn.execute(
+                query, [
+                    self.fk_id_actor,
+                    self.fk_id_pelicula,
+                    self.personaje,
+                    self.descripcion])
+            conn.commit()
+#            id_actor = last_id(conn)
+            conn.close()
+#            return id_actor
+        except sqlite3.Error as e:
+            print "An error occurred:", e.args[0]
+            return None
+
+    def __update(self):
+        query = "UPDATE actor_en_pelicula"
+        query += "SET fk_id_pelicula = ?, "
+        query += "personaje = ?, "
+        query += "descripcion_rol = ? "
+        query += "WHERE fk_id_actor = ? "
+        try:
+            conn = connect()
+            conn.execute(
+                query, [
+                    self.fk_id_pelicula,
+                    self.personaje,
+                    self.descripcion,
+                    self.fk_id_actor])
+            conn.commit()
+            conn.close()
+            return True
+        except sqlite3.Error as e:
+            print "An error occurred:", e.args[0]
+            return False
+
     def load(self, fk_id_pelicula=None):
         """
         """
@@ -415,6 +501,7 @@ class ActorPelicula(object):
         except sqlite3.Error as e:
             print "An error occurred:", e.args[0]
             return None
+
     @classmethod
     def peliculasDelActor(cls, id_actor):
         """
@@ -469,31 +556,45 @@ if __name__ == "__main__":
     #actores = Actor.all()
     #print actores
 
-    actorPelicula = ActorPelicula.actoresDeLaPelicula(5)
-    print type(actorPelicula)
-    print len(actorPelicula)
-    print actorPelicula
-    row = actorPelicula[0]
-    print row[0]
+    #actorPelicula = ActorPelicula.actoresDeLaPelicula(5)
+    #print type(actorPelicula)
+    #print len(actorPelicula)
+    #print actorPelicula
+    #row = actorPelicula[0]
+    #print row[0]
 
-    print "---------------------------"
-    actores = Actor.actores([1, 2, 3])
-    print actores
+    #print "---------------------------"
+    #actores = Actor.actores([1, 2, 3])
+    #print actores
 
-    print "---------------------------"
-    prueba = ActorPelicula(None, 5)
-    print prueba.fk_id_actor
+    #print "---------------------------"
+    #prueba = ActorPelicula(None, 5)
+    #print prueba.fk_id_actor
 
     # Obtener toda la lista alumnos
     #Pelicula.all()
     # Crear un nuevo curso
+
     #a = Actor()
     #a.nombre = u"Hola"
     #a.nacimiento = u"Ayer"
-    #a.genero = "Miedo"
-    #a.imagen = u"Ciencias de la computación"
+    #a.genero = u"Femenino"
+    #a.imagen = u"Ciencias de la computación.jpg"
     #a.save()
+    #actores = Actor.all()
+    #print actores
 
+    #p = Pelicula()
+    #p.nombre = u"a"
+    #p.estreno = u"b"
+    #p.director = u"c"
+    #p.pais = u"d"
+    #p.descripcion = u"e"
+    #p.actores = u"f"
+    #p.save()
+    #peliculas = Pelicula.all()
+    #print "-----------------------------------"
+    #print peliculas
     # Actualizar un curso por codigo
     #b = Curso(codigo=u"INFO010")
     # En este momento el objeto a y b representan la misma fila en la BD
