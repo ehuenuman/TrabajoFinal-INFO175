@@ -34,10 +34,10 @@ def obtenerPelicula(nombre=None):
     return pelicula
 
 
-def actoresDePelicula(id_pelicula):
-    pk = ActorPelicula.actoresDePelicula(id_pelicula)
-    print type(pk)
+def actoresDeLaPelicula(id_pelicula):
+    pk = ActorPelicula.actoresDeLaPelicula(id_pelicula)
     pkActores = list()
+
     for i, data in enumerate(pk):
         pkActores.append(data[0])
 
@@ -50,6 +50,23 @@ def buscarActores(pkActores):
     actores = Actor.actores(pkActores)
 
     return actores
+
+
+def peliculasDelActor(id_actor):
+    pk = ActorPelicula.peliculasDelActor(id_actor)
+    pkPeliculas = list()
+    for i, data in enumerate(pk):
+        pkPeliculas.append(data[0])
+
+    peliculas = buscarPeliculas(pkPeliculas)
+
+    return peliculas
+
+
+def buscarPeliculas(pkPeliculas):
+    peliculas = Pelicula.peliculas(pkPeliculas)
+
+    return peliculas
 
 
 def crearActor(nombre, codigo, semestre, area):
@@ -70,4 +87,4 @@ def crearActor(nombre, codigo, semestre, area):
     nuevo.save()
 
 if __name__ == "__main__":
-    actoresDePelicula(5)
+    pass
