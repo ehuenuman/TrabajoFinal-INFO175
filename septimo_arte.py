@@ -174,8 +174,15 @@ class SeptimoArte(QtGui.QWidget):
             nombre = model.index(index.row(), 0, QtCore.QModelIndex()).data()
             a = controller.obtenerActor(nombre)
 
-            direccion = "imgActor/{0}".format(a.imagen)
+            imagenes = os.listdir("imgActor/")
+            foto = str(a.id_actor) + ".jpg" in imagenes
+            if foto is True:
+                direccion = "imgActor/{}".format(str(a.id_actor) + ".jpg")
+            else:
+                direccion = "imgActor/{}".format(str(a.id_actor) + ".png")
+
             self.ui.actorImagenLabel.setPixmap(QtGui.QPixmap(direccion))
+
         else:
             # Estamos en el Tab Películas
             index = self.ui.peliculasTreeView.currentIndex()  # n° fila tabla
