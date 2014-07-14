@@ -45,44 +45,41 @@ class FormularioPelicula (QtGui.QDialog):
         ac = ""
         rol = self.ui.rolLineEdit.text()
         info = self.ui.infoRolPlainTextEdit.toPlainText()
-        #print str(self.ui.actoresComboBox.currentText())
-        ac = str(self.ui.actoresComboBox.currentText())
-        actores = controller.actor()
-        i = 0
-        j=5
-        for data in enumerate(actores):
-            row = data[1]
-            #print row[1]
-            if ac == row[1]:
-                print "son los mismos"
-                print row[0]
-                #controller.crearActorPelicula(row[0], j, rol, info)
-            #i=i+1
-        return ac
-
-    def loadPelicula(self):
-        """Carga una pelicula en la base de datos desde la interfaz"""
-        #print self.ui.nombreLineEdit.text()
-        #print self.ui.estrenoLineEdit.text()
-        #print self.ui.directorLineEdit.text()
-        #print self.ui.paisLineEdit.text()
-        #print self.ui.tramaPlainTextEdit.toPlainText()
-        actor = self.grabar()
-        #print actor
-
-        valido = self.ui.nombreLineEdit.text().isalpha()
-        valido2 = self.ui.estrenoLineEdit.text().isdigit()
-        valido3 = self.ui.directorLineEdit.text().isalpha()
-        valido4 = self.ui.paisLineEdit.text().isalpha()
-        valido5 = self.ui.tramaPlainTextEdit.toPlainText().isalpha()
-        if(valido is False or valido2 is False or valido3 is False or valido4 is False or valido5 is False):
+        valido = rol.isalpha()
+        valido2 = info.isalpha()
+        if (valido is False or valido2 is False):
             correctoQMessageBox = QtGui.QMessageBox()
             correctoQMessageBox.setWindowTitle("ERROR!")
             correctoQMessageBox.setText(u"""Campo ingresado incorrectamente.
                                         \nIntente nuevamente!""")
             correctoQMessageBox.exec_()
         else:
-            controller.crearPelicula(self.ui.nombreLineEdit.text(), self.ui.estrenoLineEdit.text(), self.ui.directorLineEdit.text(), self.ui.paisLineEdit.text(), self.ui.tramaPlainTextEdit.toPlainText(), actor)
+            ac = str(self.ui.actoresComboBox.currentText())
+            actores = controller.actor()
+            j=5
+            for data in enumerate(actores):
+                row = data[1]
+                if ac == row[1]:
+                    controller.crearActorPelicula(row[0], j, rol, info)
+        return ac
+
+    def loadPelicula(self):
+        """Carga una pelicula en la base de datos desde la interfaz"""
+        ac = str(self.ui.actoresComboBox.currentText())
+        print ac
+
+        valido = self.ui.nombreLineEdit.text().isalpha()
+        valido2 = self.ui.estrenoLineEdit.text().isdigit()
+        valido3 = self.ui.directorLineEdit.text().isalpha()
+        valido4 = self.ui.paisLineEdit.text().isalpha()
+        if(valido is False or valido2 is False or valido3 is False or valido4 is False):
+            correctoQMessageBox = QtGui.QMessageBox()
+            correctoQMessageBox.setWindowTitle("ERROR!")
+            correctoQMessageBox.setText(u"""Campo ingresado incorrectamente.
+                                        \nIntente nuevamente!""")
+            correctoQMessageBox.exec_()
+        else:
+            controller.crearPelicula(self.ui.nombreLineEdit.text(), self.ui.estrenoLineEdit.text(), self.ui.directorLineEdit.text(), self.ui.paisLineEdit.text(), self.ui.tramaPlainTextEdit.toPlainText(), ac)
             self.reject()
 
     def elenco(self):
