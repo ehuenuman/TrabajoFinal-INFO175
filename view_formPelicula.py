@@ -9,7 +9,7 @@ import controller
 
 class FormularioPelicula (QtGui.QDialog):
     """
-    Clase que modela muestra la interfaz para el formulario de películas,
+    Clase que muestra la interfaz para el formulario de películas,
     trabaja con la interacción usuario-interfaz.
     """
     def __init__(self):
@@ -48,7 +48,7 @@ class FormularioPelicula (QtGui.QDialog):
 
     def examinarImagen(self):
         """
-        Habre un neva ventana donde le permite al usuario buscar imagenes
+        Habre un nueva ventana donde le permite al usuario buscar imagenes
         *.jpg o *.png para asignarlas a un actor o película.
         """
         nueva_imagen = QtGui.QFileDialog.getOpenFileNames(self,
