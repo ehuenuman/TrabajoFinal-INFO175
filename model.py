@@ -102,7 +102,7 @@ class Actor(object):
             self.imagen = row[4]
         else:
             self.id_curso = None
-            print "El registro no existe"
+            #print "El registro no existe"
 
     def save(self):
         """
@@ -132,7 +132,7 @@ class Actor(object):
             conn.close()
             return id_actor
         except sqlite3.Error as e:
-            print "An error occurred:", e.args[0]
+            #print "An error occurred:", e.args[0]
             return None
 
     def __update(self):
@@ -140,7 +140,9 @@ class Actor(object):
         query += "SET nombre = ?, "
         query += "nacimiento = ?, "
         query += "genero = ?, "
-        query += "imagen = ?, "
+        query += "imagen = ? "
+        query += "WHERE id_actor = {}".format(self.id_actor)
+
         try:
             conn = connect()
             conn.execute(
@@ -152,8 +154,9 @@ class Actor(object):
             conn.commit()
             conn.close()
             return True
+
         except sqlite3.Error as e:
-            print "An error occurred:", e.args[0]
+            #print "An error occurred:", e.args[0]
             return False
 
     def delete(self):
@@ -165,8 +168,9 @@ class Actor(object):
             conn.commit()
             conn.close()
             return True
+
         except sqlite3.Error as e:
-            print "An error occurred:", e.args[0]
+            #print "An error occurred:", e.args[0]
             return False
 
     @classmethod
@@ -212,7 +216,7 @@ class Actor(object):
             return data
 
         except sqlite3.Error as e:
-            print "An error occurred:", e.args[0]
+            #print "An error occurred:", e.args[0]
             return None
 
 
@@ -279,7 +283,7 @@ class Pelicula(object):
             conn.close()
 #            return id_actor
         except sqlite3.Error as e:
-            print "An error occurred:", e.args[0]
+            #print "An error occurred:", e.args[0]
             return None
 
     def load(self, nombre=None):
@@ -308,7 +312,7 @@ class Pelicula(object):
             self.descripcion = row[6]
         else:
             self.nombre = None
-            print "La pelicula no existe"
+            #print "La pelicula no existe"
 
     @classmethod
     def peliculas(cls, pkPeliculas):
@@ -358,7 +362,7 @@ class Pelicula(object):
             return data
 
         except sqlite3.Error as e:
-            print "An error occurred:", e.args[0]
+            #print "An error occurred:", e.args[0]
             return None
 
 
@@ -422,7 +426,7 @@ class ActorPelicula(object):
             conn.close()
 #            return id_actor
         except sqlite3.Error as e:
-            print "An error occurred:", e.args[0]
+            #print "An error occurred:", e.args[0]
             return None
 
     def __update(self):
@@ -443,7 +447,7 @@ class ActorPelicula(object):
             conn.close()
             return True
         except sqlite3.Error as e:
-            print "An error occurred:", e.args[0]
+            #print "An error occurred:", e.args[0]
             return False
 
     def load(self, fk_id_pelicula=None):
@@ -499,7 +503,7 @@ class ActorPelicula(object):
             return data
 
         except sqlite3.Error as e:
-            print "An error occurred:", e.args[0]
+            #print "An error occurred:", e.args[0]
             return None
 
     @classmethod
@@ -524,7 +528,7 @@ class ActorPelicula(object):
             return data
 
         except sqlite3.Error as e:
-            print "A Ocurrido un Error!:", e.args[0]
+            #print "A Ocurrido un Error!:", e.args[0]
             return None
 
     @classmethod
@@ -544,7 +548,7 @@ class ActorPelicula(object):
             return data
 
         except sqlite3.Error as e:
-            print "An error occurred:", e.args[0]
+            #print "An error occurred:", e.args[0]
             return None
 
 

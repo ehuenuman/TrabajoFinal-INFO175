@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 from PySide import QtCore, QtGui
 from mainWindow import Ui_MainWindow
+from view_formActor import FormularioActor
 from view_formPelicula import FormularioPelicula
 import controller
 import sys
@@ -11,8 +12,8 @@ import os
 class SeptimoArte(QtGui.QWidget):
     """Clase principal de programa."""
     columna_actor = (
-        (u"Nombre", 167),
-        (u"Cumpleaños", 120),
+        (u"Nombre", 150),
+        (u"Cumpleaños", 130),
         (u"Genero", 90),
         (u"N° Películas", 90))
 
@@ -79,6 +80,7 @@ class SeptimoArte(QtGui.QWidget):
 
             self.ui.buscarAPeliculaComboBox.clear()
             self.comboBoxTabActor()
+            self.ui.buscarANombreLineEdit.clear()
         # Grilla de películas
         else:
             self.proxyModelMovie.setSourceModel(model)
@@ -90,6 +92,7 @@ class SeptimoArte(QtGui.QWidget):
 
             self.ui.buscarPActorComboBox.clear()
             self.comboBoxTabPeliculas()
+            self.ui.buscarPNombreLineEdit.clear()
 
     def loadTableData(self, parent):
         """
@@ -126,6 +129,8 @@ class SeptimoArte(QtGui.QWidget):
         self.ui.buscarAPeliculaComboBox.currentIndexChanged.connect(
             self.filtrarActorPorPelicula)
         self.ui.nuevoAButton.clicked.connect(self.nuevoActor)
+        self.ui.editarAButton.clicked.connect(self.editarActor)
+        self.ui.borrarAButton.clicked.connect(self.borrarActor)
 
         #Signals TabPelicula
         self.ui.peliculasTreeView.clicked.connect(self.infoClick)
@@ -179,7 +184,11 @@ class SeptimoArte(QtGui.QWidget):
             if foto is True:
                 direccion = "imgActor/{}".format(str(a.id_actor) + ".jpg")
             else:
-                direccion = "imgActor/{}".format(str(a.id_actor) + ".png")
+                foto = str(a.id_actor) + ".png" in imagenes
+                if foto is True:
+                    direccion = "imgActor/{}".format(str(a.id_actor) + ".png")
+                else:
+                    direccion = "imgInterfaz/NoImagenActor.png"
 
             self.ui.actorImagenLabel.setPixmap(QtGui.QPixmap(direccion))
 
@@ -222,12 +231,13 @@ class SeptimoArte(QtGui.QWidget):
             actores = controller.actoresDeLaPelicula(pelicula.id_pelicula)
             actoresAFiltrar = ""
 
-            for i, data in enumerate(actores):
-                row = data[0]
-                if i == len(actores) - 1:
-                    actoresAFiltrar += row[1]
-                else:
-                    actoresAFiltrar += row[1] + "|"
+            if actores is not None:
+                for i, data in enumerate(actores):
+                    row = data[0]
+                    if i == len(actores) - 1:
+                        actoresAFiltrar += row[1]
+                    else:
+                        actoresAFiltrar += row[1] + "|"
 
             if actoresAFiltrar is "":
                 actoresAFiltrar = u"@~@"
@@ -241,9 +251,50 @@ class SeptimoArte(QtGui.QWidget):
         self.proxyModelActor.setFilterRegExp(actoresFiltrados)
 
     def nuevoActor(self):
-        form = FormularioPelicula()
+        form = FormularioActor()
         form.exec_()
         self.setSourceModel(self.loadTableData(self.tipoModel))
+
+    def editarActor(self):
+        """
+        """
+        index = self.ui.actoresTreeView.currentIndex()  # n° fila tabla
+        if index.row() == -1:
+            mensaje = "Debe de seleccionar una fila"
+            errorQMessageBox = QtGui.QMessageBox()
+            errorQMessageBox.setWindowTitle("ERROR!")
+            errorQMessageBox.setText(mensaje)
+            errorQMessageBox.exec_()
+        else:
+            model = self.ui.actoresTreeView.model()
+            nombre = model.index(index.row(), 0, QtCore.QModelIndex()).data()
+            a = controller.obtenerActor(nombre)
+
+            form = FormularioActor(a.id_actor)
+            form.exec_()
+            self.setSourceModel(self.loadTableData(self.tipoModel))
+
+    def borrarActor(self):
+        index = self.ui.actoresTreeView.currentIndex()  # n° fila tabla
+        if index.row() == -1:
+            mensaje = "Debe de seleccionar una fila"
+            errorQMessageBox = QtGui.QMessageBox()
+            errorQMessageBox.setWindowTitle("ERROR!")
+            errorQMessageBox.setText(mensaje)
+            errorQMessageBox.exec_()
+        else:
+            model = self.ui.actoresTreeView.model()
+            nombre = model.index(index.row(), 0, QtCore.QModelIndex()).data()
+            a = controller.obtenerActor(nombre)
+            borrado = controller.borrarActor(a)
+
+            if borrado is True:
+                mensaje = "Actor borrado correctamente"
+                errorQMessageBox = QtGui.QMessageBox()
+                errorQMessageBox.setWindowTitle("Borrado!")
+                errorQMessageBox.setText(mensaje)
+                errorQMessageBox.exec_()
+                self.setSourceModel(self.loadTableData(self.tipoModel))
 
     ########################################################################
     ################### Estructuración del Tab Películas ###################
@@ -310,12 +361,13 @@ class SeptimoArte(QtGui.QWidget):
             peliculas = controller.peliculasDelActor(actor.id_actor)
             peliculasAFiltrar = ""
 
-            for i, data in enumerate(peliculas):
-                row = data[0]
-                if i == len(peliculas) - 1:
-                    peliculasAFiltrar += row[1]
-                else:
-                    peliculasAFiltrar += row[1] + "|"
+            if peliculas is not None:
+                for i, data in enumerate(peliculas):
+                    row = data[0]
+                    if i == len(peliculas) - 1:
+                        peliculasAFiltrar += row[1]
+                    else:
+                        peliculasAFiltrar += row[1] + "|"
 
             if peliculasAFiltrar is "":
                 peliculasAFiltrar = u"@~@"
