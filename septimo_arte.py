@@ -139,6 +139,7 @@ class SeptimoArte(QtGui.QWidget):
             self.filtrarPeliculaNombre)
         self.ui.buscarPActorComboBox.currentIndexChanged.connect(
             self.filtrarPeliculaPorActor)
+        self.ui.nuevoPButton.clicked.connect(self.nuevaPelicula)
 
     ########################################################################
     #################### Estructuración del Tab Actores ####################
@@ -379,6 +380,11 @@ class SeptimoArte(QtGui.QWidget):
         peliculasFiltradas = QtCore.QRegExp(
             peliculasAFiltrar, QtCore.Qt.CaseInsensitive, QtCore.QRegExp.RegExp)
         self.proxyModelMovie.setFilterRegExp(peliculasFiltradas)
+
+    def nuevaPelicula(self):
+        form = FormularioPelicula()
+        form.exec_()
+        self.setSourceModel(self.loadTableData(self.tipoModel))
 
 if __name__ == '__main__':
     app = QtGui.QApplication(sys.argv)
