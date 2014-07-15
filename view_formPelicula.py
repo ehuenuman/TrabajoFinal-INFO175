@@ -5,6 +5,8 @@ import sys
 from PySide import QtGui
 from formPelicula import Ui_FormularioPelicula
 import controller
+import shutil
+import os
 
 
 class FormularioPelicula (QtGui.QDialog):
@@ -24,16 +26,22 @@ class FormularioPelicula (QtGui.QDialog):
         self.setSignals()
 
     def imagenInicial(self):
+        """Setea la imagen por defecto en el formulario."""
         self.ui.imagenLabel.setPixmap(QtGui.QPixmap(
-            "imgInterfaz/No Imagen.png"))
+            "imgInterfaz/NoImagenPelicula.png"))
 
     def comboBoxActor(self):
+        """
+        Rellena el comboBox de Actores que se usa al rellenar el elenco de
+        la pelicula
+        """
         actores = controller.actor()
         self.ui.actoresComboBox.insertItem(0, u"Seleccione Actor")
         for i, data in enumerate(actores):
             self.ui.actoresComboBox.insertItem(i + 1, data[1])
 
     def setSignals(self):
+        """Señales (listenner) de los elementos del formulario"""
         self.ui.elencoButton.clicked.connect(self.elenco)
         self.ui.terminarElencoButton.clicked.connect(self.pelicula)
         self.ui.nuevaImagenButton.clicked.connect(self.examinarImagen)
@@ -43,6 +51,11 @@ class FormularioPelicula (QtGui.QDialog):
         self.ui.cancelarButton.clicked.connect(self.reject)
 
     def grabar(self):
+        """
+        Acción que se ejecuta al presionar el botón 'Grabar'.
+        Obtiene los datos ingresados y los setea en la base de datos si es que
+        no poseen error de ingreso.
+        """
         ac = ""
         rol = self.ui.rolLineEdit.text()
         info = self.ui.infoRolPlainTextEdit.toPlainText()
@@ -93,11 +106,7 @@ class FormularioPelicula (QtGui.QDialog):
 
     def examinarImagen(self):
         """
-<<<<<<< HEAD
-        Habre un nueva ventana donde le permite al usuario buscar imagenes
-=======
-        Habre un neva ventana donde le permite al usuario buscar imagenes
->>>>>>> 73fa671f5ed411ea3518b1d9dd52019beef4dd27
+        Abre un nueva ventana donde le permite al usuario buscar imagenes
         *.jpg o *.png para asignarlas a un actor o película.
         """
         nueva_imagen = QtGui.QFileDialog.getOpenFileNames(self,

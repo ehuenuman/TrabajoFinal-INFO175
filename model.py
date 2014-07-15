@@ -1,26 +1,5 @@
 # -*- coding: utf-8 -*-
-"""
-Ejemplo simple de aplicación de un diagrama de clases.
-Las clases representan a las entidades, las cuales a su vez
-son tablas en la base de datos.
-La ventaja de las clases es que además de los atributos poseen
-métodos que facilitan las consultas y ĺas centralizan.
-Con esto ya se puede tener una patrón de diseño MVC.
-**ADVERTENCIA:**
-Este ejemplo carece de varias consideraciones que habría que tomar
-al realizar una aplicación real, especialmente una APP de escritorio
-que admita varios hilos de ejecución.
 
-TODO:
-    - Mantener consistencia de objetos con la BD.
-    - En este esquema todavía no se pueden hacer consultas complejas (Join).
-    - Clase Base que represente a una tabla genérica con los métodos Insert,
-    Update, delete y load.
-    - Manejar restricciones de BD a nivel de clases.
-    - Cualquier cambio estructural (atributos/columnas) en las clases hay que
-    replicarlo (con sentencias SQL) en la base de datos.
-    - Etc.
-"""
 import sqlite3
 
 
@@ -39,13 +18,11 @@ def last_id(conn):
 
 class Actor(object):
     """
-    Clase que representa a la tabla cursos
+    Clase que representa a la tabla actor
     Una instancia de esta clase representa a una fila.
     La instancia (objeto) puede estar en BD o no.
     El método save de la clase inserta o actualiza el registro según
     corresponda.
-    Los atributos de la clase deben tener correspondencia con la BD
-    (Nombres y tipos de datos)
     """
     __tablename__ = "actor"
     id_actor = None  # Primary Key
@@ -115,6 +92,7 @@ class Actor(object):
             self.__update()
 
     def __insert(self):
+        """Crea una nueva entrada la la base de datos."""
         query = "INSERT INTO {0} ".format(self.__tablename__)
         # La pk está definida como auto increment en el modelo
         query += "(nombre, nacimiento, genero, imagen) "
@@ -136,6 +114,7 @@ class Actor(object):
             return None
 
     def __update(self):
+        """Actualiza la base de datos."""
         query = "UPDATE {} ".format(self.__tablename__)
         query += "SET nombre = ?, "
         query += "nacimiento = ?, "
@@ -160,6 +139,7 @@ class Actor(object):
             return False
 
     def delete(self):
+        """Borra una fila de la base de datos."""
         query = "DELETE FROM {} ".format(self.__tablename__)
         query += "WHERE id_actor = ?"
         try:
@@ -221,6 +201,13 @@ class Actor(object):
 
 
 class Pelicula(object):
+    """
+    Clase que representa a la tabla pelicula
+    Una instancia de esta clase representa a una fila.
+    La instancia (objeto) puede estar en BD o no.
+    El método save de la clase inserta o actualiza el registro según
+    corresponda.
+    """
 
     __tablename__ = "pelicula"
     id_pelicula = None  # Primary Key
@@ -264,6 +251,7 @@ class Pelicula(object):
             pass
 
     def insert(self):
+        """Crea una nueva fila con información en la base de datos"""
         query = "INSERT INTO {0} ".format(self.__tablename__)
         # La pk está definida como auto increment en el modelo
         query += "(nombre, estreno, director, pais, actores, description) "
@@ -367,6 +355,10 @@ class Pelicula(object):
 
 
 class ActorPelicula(object):
+    """
+    Clase que representa la tabla actor_en_pelicula.
+    Cada instancia de la clase representa una fila con su información.
+    """
 
     __tablename__ = "actor_en_pelicula"
     fk_id_actor = None
@@ -409,6 +401,9 @@ class ActorPelicula(object):
             self.__update()
 
     def insert(self):
+        """
+        Crea una nueva fila con información en la base de datos
+        """
         query = "INSERT INTO {0} ".format(self.__tablename__)
         # La pk está definida como auto increment en el modelo
         query += "(fk_id_actor, fk_id_pelicula, personaje, descripcion_rol) "
@@ -430,6 +425,9 @@ class ActorPelicula(object):
             return None
 
     def __update(self):
+        """
+        Actualiza la información de una fila especifica.
+        """
         query = "UPDATE actor_en_pelicula"
         query += "SET fk_id_pelicula = ?, "
         query += "personaje = ?, "
@@ -452,6 +450,9 @@ class ActorPelicula(object):
 
     def load(self, fk_id_pelicula=None):
         """
+        Carga una relación especifica.
+        Depende de que parametro reciba buscara actor para una pelicula o
+        pelicula de un actor.
         """
         conn = connect()
         query = "SELECT * FROM actor_en_pelicula"
@@ -553,61 +554,4 @@ class ActorPelicula(object):
 
 
 if __name__ == "__main__":
-    """
-    Ejemplos de utilización del modelo
-    """
-    # Obtener toda la lista de actores
-    #actores = Actor.all()
-    #print actores
-
-    #actorPelicula = ActorPelicula.actoresDeLaPelicula(5)
-    #print type(actorPelicula)
-    #print len(actorPelicula)
-    #print actorPelicula
-    #row = actorPelicula[0]
-    #print row[0]
-
-    #print "---------------------------"
-    #actores = Actor.actores([1, 2, 3])
-    #print actores
-
-    #print "---------------------------"
-    #prueba = ActorPelicula(None, 5)
-    #print prueba.fk_id_actor
-
-    # Obtener toda la lista alumnos
-    #Pelicula.all()
-    # Crear un nuevo curso
-
-    #a = Actor()
-    #a.nombre = u"Hola"
-    #a.nacimiento = u"Ayer"
-    #a.genero = u"Femenino"
-    #a.imagen = u"Ciencias de la computación.jpg"
-    #a.save()
-    #actores = Actor.all()
-    #print actores
-
-    #p = Pelicula()
-    #p.nombre = u"a"
-    #p.estreno = u"b"
-    #p.director = u"c"
-    #p.pais = u"d"
-    #p.descripcion = u"e"
-    #p.actores = u"f"
-    #p.save()
-    #peliculas = Pelicula.all()
-    #print "-----------------------------------"
-    #print peliculas
-    # Actualizar un curso por codigo
-    #b = Curso(codigo=u"INFO010")
-    # En este momento el objeto a y b representan la misma fila en la BD
-    # lo que no es correcto por que puede provocar inconsistencia!!!
-    #b.nombre_curso = u"Nuevo curso editado"
-    #b.save()
-    # borra un curso
-    #b.delete()
-
-    # Traer todos los alumnos de un curso
-    #c = Curso(1)
-    #c.alumnos()
+    pass

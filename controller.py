@@ -13,36 +13,45 @@ import os
 
 
 def actor():
+    """Retorna a todos los actores y sus datos"""
     return Actor.all()
 
 
 def pelicula():
+    """Retorna a todas las películas y sus datos"""
     return Pelicula.all()
 
 
 def actorPelicula():
+    """Retorna la relación n a n de actores y películas"""
     return ActorPelicula.all()
 
 
 def obtenerActor(nombre=None):
+    """Retorna un actor (objeto) liego de buscarlo a traves de su nombre"""
     actor = Actor(None, nombre)
 
     return actor
 
 
 def obtenerActorId(idActor):
+    """Returna un actor (objeto) luego de buscarlo a traves de su id_actor"""
     actor = Actor(idActor)
 
     return actor
 
 
 def obtenerPelicula(nombre=None):
+    """Retorna una pelicula (objeto) luego de buscarla a traves de su nombre"""
     pelicula = Pelicula(None, nombre)
 
     return pelicula
 
 
 def actoresDeLaPelicula(id_pelicula):
+    """
+    Busca a todos los actores que participaron en la misma pelicula.
+    Retorna la información como una lista."""
     pk = ActorPelicula.actoresDeLaPelicula(id_pelicula)
     pkActores = list()
 
@@ -56,12 +65,19 @@ def actoresDeLaPelicula(id_pelicula):
 
 
 def buscarActores(pkActores):
+    """
+    Busca a más de un actor y su información desde una lista con las Pk de
+    los actores que se desean buscar.
+    """
     actores = Actor.actores(pkActores)
 
     return actores
 
 
 def peliculasDelActor(id_actor):
+    """
+    Busca todas las películas de un mismo actor a traves de la PK del actor.
+    """
     pk = ActorPelicula.peliculasDelActor(id_actor)
     pkPeliculas = list()
     if pk is not None:
@@ -74,6 +90,10 @@ def peliculasDelActor(id_actor):
 
 
 def buscarPeliculas(pkPeliculas):
+    """
+    Busca más de una película y su informació. Esto lo logra reciviendo una
+    lista con todas las Pk de las películas que se desean buscar.
+    """
     peliculas = Pelicula.peliculas(pkPeliculas)
 
     return peliculas
@@ -109,13 +129,13 @@ def crearActor(id_actor, nombre, nacimiento, genero):
         mensaje = u"Especifique el genero del actor"
         return mensaje
     nuevo.genero = genero
-
     nuevo.save()
 
     return True
 
 
 def borrarActor(actor):
+    """Borra toda la información de un actor."""
     id_actor = actor.id_actor
 
     borrado = actor.delete()
@@ -133,6 +153,10 @@ def borrarActor(actor):
 
 
 def crearPelicula(nombre, ano, director, pais, trama, actores):
+    """
+    Recibiendo todos los datos ingresados en el formulario, crea un nuevo
+    objeto pelicula y setea la información.
+    """
     nuevo = Pelicula()
     nuevo.nombre = nombre
     nuevo.estreno = ano
@@ -144,6 +168,9 @@ def crearPelicula(nombre, ano, director, pais, trama, actores):
 
 
 def crearActorPelicula(id_actor, id_peli, personaje, descripcion):
+    """
+    Crea una nueva relacion para actor y película"
+    """
     nuevo = ActorPelicula()
     nuevo.fk_id_actor = id_actor
     nuevo.fk_id_pelicula = id_peli

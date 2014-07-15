@@ -50,6 +50,10 @@ class FormularioActor (QtGui.QDialog):
             self.ui.mesComboBox.insertItem(i + 1, data)
 
     def llenarFormularioEditar(self):
+        """
+        Cuando se piensa editar un actor esta función busca la información
+        del actor y la setea en los campos del formulario.
+        """
         self.setWindowTitle("Modificar Actor")
         actor = controller.obtenerActorId(self.id_actor)
 
@@ -170,6 +174,11 @@ class FormularioActor (QtGui.QDialog):
         correctoQMessageBox.exec_()
 
     def borrarImagenLabel(self):
+        """
+        Función que borra la imagen del actor cuando se presionar el botón
+        para ello.
+        Para no dejar en blanco setea una imagen por defecto.
+        """
         direccion = "imgInterfaz/NoImagenActor.png"
         self.ui.imagenActorLabel.setPixmap(QtGui.QPixmap(direccion))
 
