@@ -30,6 +30,12 @@ def obtenerActor(nombre=None):
     return actor
 
 
+def obtenerActorId(idActor):
+    actor = Actor(idActor)
+
+    return actor
+
+
 def obtenerPelicula(nombre=None):
     pelicula = Pelicula(None, nombre)
 
@@ -40,12 +46,13 @@ def actoresDeLaPelicula(id_pelicula):
     pk = ActorPelicula.actoresDeLaPelicula(id_pelicula)
     pkActores = list()
 
-    for i, data in enumerate(pk):
-        pkActores.append(data[0])
+    if pk is not None:
+        for i, data in enumerate(pk):
+            pkActores.append(data[0])
 
-    actores = buscarActores(pkActores)
+        actores = buscarActores(pkActores)
 
-    return actores
+        return actores
 
 
 def buscarActores(pkActores):
@@ -57,12 +64,13 @@ def buscarActores(pkActores):
 def peliculasDelActor(id_actor):
     pk = ActorPelicula.peliculasDelActor(id_actor)
     pkPeliculas = list()
-    for i, data in enumerate(pk):
-        pkPeliculas.append(data[0])
+    if pk is not None:
+        for i, data in enumerate(pk):
+            pkPeliculas.append(data[0])
 
-    peliculas = buscarPeliculas(pkPeliculas)
+        peliculas = buscarPeliculas(pkPeliculas)
 
-    return peliculas
+        return peliculas
 
 
 def buscarPeliculas(pkPeliculas):
@@ -71,16 +79,17 @@ def buscarPeliculas(pkPeliculas):
     return peliculas
 
 
-def crearActor(nombre, nacimiento, genero, imagen):
+def crearActor(id_actor, nombre, nacimiento, genero):
     """
     Método que crea un actor.
     Valida la información recibida.
     @param nombre del actor
     @param fecha de nacimiento del actor
     @genero masculino o femenino
-    @imagen dirección de la imagen que contiene al actor
     """
     nuevo = Actor()
+
+    nuevo.id_actor = id_actor
 
     if len(nombre.strip()) is 0:
         mensaje = u"Ingrese nombre del actor"
@@ -101,28 +110,26 @@ def crearActor(nombre, nacimiento, genero, imagen):
         return mensaje
     nuevo.genero = genero
 
-    nuevo.imagen = imagen
-
     nuevo.save()
-
-    # Procedemos a guardar la imagen en su directorio correspondiente
-    id_actor = nuevo.id_actor[0]
-    nuevaImagen = "imgActor/{}".format(id_actor)
-    almacenarImagen(imagen, nuevaImagen)
 
     return True
 
 
-def almacenarImagen(origen_imagen, nuevo_nombre):
-    """
-    Función que guarda la imagen para utilizarla a futuro.
-    @param origen_imagen Dirección de la imagen que selecciono el usuario
-    @param nuevo_nombre Dirección donde almacera la imagen seleccionada
-    """
-    info = os.path.splitext(origen_imagen)
-    extension = info[1]
-    destino_imagen = "{0}{1}".format(nuevo_nombre, extension)
-    shutil.copy(origen_imagen, destino_imagen)
+def borrarActor(actor):
+    id_actor = actor.id_actor
+
+    borrado = actor.delete()
+
+    imagenes = os.listdir("imgActor/")
+    foto = str(id_actor) + ".jpg" in imagenes
+    if foto is True:
+        imagen = "imgActor/{0}{1}".format(id_actor, ".jpg")
+        os.remove(imagen)
+    else:
+        imagen = "imgActor/{0}{1}".format(id_actor, ".png")
+        os.remove(imagen)
+
+    return borrado
 
 
 def crearPelicula(nombre, ano, director, pais, trama, actores):
@@ -146,5 +153,24 @@ def crearActorPelicula(id_actor, id_peli, personaje, descripcion):
     nuevo.save()
 
 
+def almacenarImagen(origen_imagen, nuevo_nombre):
+    """
+    Función que guarda la imagen para utilizarla a futuro.
+    @param origen_imagen Dirección de la imagen que selecciono el usuario
+    @param nuevo_nombre Dirección donde almacera la imagen seleccionada
+    """
+    info = os.path.splitext(origen_imagen)
+    extension = info[1]
+    destino_imagen = "{0}{1}".format(nuevo_nombre, extension)
+    if origen_imagen == destino_imagen:
+        pass
+    else:
+        shutil.copy(origen_imagen, destino_imagen)
+
+
 if __name__ == "__main__":
+    #actor = obtenerActorId(1)
+    #print actor.id_actor
+    #print actor.nombre
+    #print actor.nacimiento.split("|")
     pass
