@@ -1,0 +1,58 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module controller</title>
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>controller</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/esteban/Documentos/INFO175/Proyecto Final/TrabajoFinal-INFO175/controller.py">/home/esteban/Documentos/INFO175/Proyecto Final/TrabajoFinal-INFO175/controller.py</a></font></td></tr></table>
+    <p><tt>Ahora&nbsp;que&nbsp;tenemos&nbsp;un&nbsp;modelo&nbsp;el&nbsp;controlador&nbsp;cumple&nbsp;el&nbsp;rol&nbsp;de&nbsp;ser&nbsp;una&nbsp;capa<br>
+intermedia&nbsp;entre&nbsp;la&nbsp;Vista&nbsp;y&nbsp;el&nbsp;modelo.<br>
+Su&nbsp;finalidad&nbsp;es&nbsp;validar&nbsp;los&nbsp;datos&nbsp;de&nbsp;entrada&nbsp;que&nbsp;envía&nbsp;la&nbsp;vista&nbsp;y&nbsp;decidir<br>
+que&nbsp;información&nbsp;enviar&nbsp;a&nbsp;ésta.</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="os.html">os</a><br>
+</td><td width="25%" valign=top><a href="shutil.html">shutil</a><br>
+</td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-actor"><strong>actor</strong></a>()</dt><dd><tt>Retorna&nbsp;a&nbsp;todos&nbsp;los&nbsp;actores&nbsp;y&nbsp;sus&nbsp;datos</tt></dd></dl>
+ <dl><dt><a name="-actorPelicula"><strong>actorPelicula</strong></a>()</dt><dd><tt>Retorna&nbsp;la&nbsp;relación&nbsp;n&nbsp;a&nbsp;n&nbsp;de&nbsp;actores&nbsp;y&nbsp;películas</tt></dd></dl>
+ <dl><dt><a name="-actoresDeLaPelicula"><strong>actoresDeLaPelicula</strong></a>(id_pelicula)</dt><dd><tt>Busca&nbsp;a&nbsp;todos&nbsp;los&nbsp;actores&nbsp;que&nbsp;participaron&nbsp;en&nbsp;la&nbsp;misma&nbsp;pelicula.<br>
+Retorna&nbsp;la&nbsp;información&nbsp;como&nbsp;una&nbsp;lista.</tt></dd></dl>
+ <dl><dt><a name="-almacenarImagen"><strong>almacenarImagen</strong></a>(origen_imagen, nuevo_nombre)</dt><dd><tt>Función&nbsp;que&nbsp;guarda&nbsp;la&nbsp;imagen&nbsp;para&nbsp;utilizarla&nbsp;a&nbsp;futuro.<br>
+@param&nbsp;origen_imagen&nbsp;Dirección&nbsp;de&nbsp;la&nbsp;imagen&nbsp;que&nbsp;selecciono&nbsp;el&nbsp;usuario<br>
+@param&nbsp;nuevo_nombre&nbsp;Dirección&nbsp;donde&nbsp;almacera&nbsp;la&nbsp;imagen&nbsp;seleccionada</tt></dd></dl>
+ <dl><dt><a name="-borrarActor"><strong>borrarActor</strong></a>(actor)</dt><dd><tt>Borra&nbsp;toda&nbsp;la&nbsp;información&nbsp;de&nbsp;un&nbsp;actor.</tt></dd></dl>
+ <dl><dt><a name="-buscarActores"><strong>buscarActores</strong></a>(pkActores)</dt><dd><tt>Busca&nbsp;a&nbsp;más&nbsp;de&nbsp;un&nbsp;actor&nbsp;y&nbsp;su&nbsp;información&nbsp;desde&nbsp;una&nbsp;lista&nbsp;con&nbsp;las&nbsp;Pk&nbsp;de<br>
+los&nbsp;actores&nbsp;que&nbsp;se&nbsp;desean&nbsp;buscar.</tt></dd></dl>
+ <dl><dt><a name="-buscarPeliculas"><strong>buscarPeliculas</strong></a>(pkPeliculas)</dt><dd><tt>Busca&nbsp;más&nbsp;de&nbsp;una&nbsp;película&nbsp;y&nbsp;su&nbsp;informació.&nbsp;Esto&nbsp;lo&nbsp;logra&nbsp;reciviendo&nbsp;una<br>
+lista&nbsp;con&nbsp;todas&nbsp;las&nbsp;Pk&nbsp;de&nbsp;las&nbsp;películas&nbsp;que&nbsp;se&nbsp;desean&nbsp;buscar.</tt></dd></dl>
+ <dl><dt><a name="-crearActor"><strong>crearActor</strong></a>(id_actor, nombre, nacimiento, genero)</dt><dd><tt>Método&nbsp;que&nbsp;crea&nbsp;un&nbsp;actor.<br>
+Valida&nbsp;la&nbsp;información&nbsp;recibida.<br>
+@param&nbsp;nombre&nbsp;del&nbsp;actor<br>
+@param&nbsp;fecha&nbsp;de&nbsp;nacimiento&nbsp;del&nbsp;actor<br>
+@genero&nbsp;masculino&nbsp;o&nbsp;femenino</tt></dd></dl>
+ <dl><dt><a name="-crearActorPelicula"><strong>crearActorPelicula</strong></a>(id_actor, id_peli, personaje, descripcion)</dt><dd><tt>Crea&nbsp;una&nbsp;nueva&nbsp;relacion&nbsp;para&nbsp;actor&nbsp;y&nbsp;película"</tt></dd></dl>
+ <dl><dt><a name="-crearPelicula"><strong>crearPelicula</strong></a>(nombre, ano, director, pais, trama, actores)</dt><dd><tt>Recibiendo&nbsp;todos&nbsp;los&nbsp;datos&nbsp;ingresados&nbsp;en&nbsp;el&nbsp;formulario,&nbsp;crea&nbsp;un&nbsp;nuevo<br>
+objeto&nbsp;pelicula&nbsp;y&nbsp;setea&nbsp;la&nbsp;información.</tt></dd></dl>
+ <dl><dt><a name="-obtenerActor"><strong>obtenerActor</strong></a>(nombre<font color="#909090">=None</font>)</dt><dd><tt>Retorna&nbsp;un&nbsp;actor&nbsp;(objeto)&nbsp;liego&nbsp;de&nbsp;buscarlo&nbsp;a&nbsp;traves&nbsp;de&nbsp;su&nbsp;nombre</tt></dd></dl>
+ <dl><dt><a name="-obtenerActorId"><strong>obtenerActorId</strong></a>(idActor)</dt><dd><tt>Returna&nbsp;un&nbsp;actor&nbsp;(objeto)&nbsp;luego&nbsp;de&nbsp;buscarlo&nbsp;a&nbsp;traves&nbsp;de&nbsp;su&nbsp;id_actor</tt></dd></dl>
+ <dl><dt><a name="-obtenerPelicula"><strong>obtenerPelicula</strong></a>(nombre<font color="#909090">=None</font>)</dt><dd><tt>Retorna&nbsp;una&nbsp;pelicula&nbsp;(objeto)&nbsp;luego&nbsp;de&nbsp;buscarla&nbsp;a&nbsp;traves&nbsp;de&nbsp;su&nbsp;nombre</tt></dd></dl>
+ <dl><dt><a name="-pelicula"><strong>pelicula</strong></a>()</dt><dd><tt>Retorna&nbsp;a&nbsp;todas&nbsp;las&nbsp;películas&nbsp;y&nbsp;sus&nbsp;datos</tt></dd></dl>
+ <dl><dt><a name="-peliculasDelActor"><strong>peliculasDelActor</strong></a>(id_actor)</dt><dd><tt>Busca&nbsp;todas&nbsp;las&nbsp;películas&nbsp;de&nbsp;un&nbsp;mismo&nbsp;actor&nbsp;a&nbsp;traves&nbsp;de&nbsp;la&nbsp;PK&nbsp;del&nbsp;actor.</tt></dd></dl>
+</td></tr></table>
+</body></html>

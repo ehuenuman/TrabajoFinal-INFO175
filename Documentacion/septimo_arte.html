@@ -1,0 +1,782 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module septimo_arte</title>
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>septimo_arte</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/esteban/Documentos/INFO175/Proyecto Final/TrabajoFinal-INFO175/septimo_arte.py">/home/esteban/Documentos/INFO175/Proyecto Final/TrabajoFinal-INFO175/septimo_arte.py</a></font></td></tr></table>
+    <p><tt>#&nbsp;-*-&nbsp;coding:&nbsp;utf-8&nbsp;-*-</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="PySide.QtCore.html">PySide.QtCore</a><br>
+<a href="PySide.QtGui.html">PySide.QtGui</a><br>
+</td><td width="25%" valign=top><a href="controller.html">controller</a><br>
+<a href="os.html">os</a><br>
+</td><td width="25%" valign=top><a href="sys.html">sys</a><br>
+</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="PySide.QtGui.html#QWidget">PySide.QtGui.QWidget</a>(<a href="PySide.QtCore.html#QObject">PySide.QtCore.QObject</a>, <a href="PySide.QtGui.html#QPaintDevice">PySide.QtGui.QPaintDevice</a>)
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="septimo_arte.html#SeptimoArte">SeptimoArte</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="SeptimoArte">class <strong>SeptimoArte</strong></a>(<a href="PySide.QtGui.html#QWidget">PySide.QtGui.QWidget</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Clase&nbsp;principal&nbsp;de&nbsp;programa.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="septimo_arte.html#SeptimoArte">SeptimoArte</a></dd>
+<dd><a href="PySide.QtGui.html#QWidget">PySide.QtGui.QWidget</a></dd>
+<dd><a href="PySide.QtCore.html#QObject">PySide.QtCore.QObject</a></dd>
+<dd><a href="PySide.QtGui.html#QPaintDevice">PySide.QtGui.QPaintDevice</a></dd>
+<dd>Shiboken.Object</dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="SeptimoArte-__init__"><strong>__init__</strong></a>(self)</dt><dd><tt>Constructor&nbsp;principal.</tt></dd></dl>
+
+<dl><dt><a name="SeptimoArte-borrarActor"><strong>borrarActor</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-centerWindow"><strong>centerWindow</strong></a>(self)</dt><dd><tt>Funcion&nbsp;que&nbsp;centra&nbsp;la&nbsp;interfaz&nbsp;grafica&nbsp;en&nbsp;la&nbsp;pantalla&nbsp;del&nbsp;usuario.</tt></dd></dl>
+
+<dl><dt><a name="SeptimoArte-changedTab"><strong>changedTab</strong></a>(self)</dt><dd><tt>Al&nbsp;cambiar&nbsp;de&nbsp;Tab&nbsp;en&nbsp;la&nbsp;app&nbsp;ordena&nbsp;que&nbsp;se&nbsp;actualice&nbsp;el&nbsp;Tab&nbsp;completo<br>
+al&nbsp;que&nbsp;nos&nbsp;trasladamos.</tt></dd></dl>
+
+<dl><dt><a name="SeptimoArte-comboBoxTabActor"><strong>comboBoxTabActor</strong></a>(self)</dt><dd><tt>Rellena&nbsp;el&nbsp;comboBox&nbsp;que&nbsp;se&nbsp;ubica&nbsp;en&nbsp;el&nbsp;Tab&nbsp;Actor&nbsp;(principal)&nbsp;con&nbsp;todas<br>
+las&nbsp;películas&nbsp;que&nbsp;se&nbsp;encuentran&nbsp;en&nbsp;la&nbsp;base&nbsp;de&nbsp;datos&nbsp;para&nbsp;luego<br>
+utilizarlas&nbsp;para&nbsp;filtrar&nbsp;el&nbsp;contenido&nbsp;de&nbsp;la&nbsp;grilla.</tt></dd></dl>
+
+<dl><dt><a name="SeptimoArte-comboBoxTabPeliculas"><strong>comboBoxTabPeliculas</strong></a>(self)</dt><dd><tt>Rellena&nbsp;el&nbsp;comboBox&nbsp;que&nbsp;se&nbsp;ubica&nbsp;en&nbsp;el&nbsp;Tab&nbsp;Peliculas&nbsp;(secundario)<br>
+con&nbsp;todos&nbsp;los&nbsp;actores&nbsp;que&nbsp;se&nbsp;encuentran&nbsp;en&nbsp;la&nbsp;base&nbsp;de&nbsp;datos&nbsp;para&nbsp;luego<br>
+utilizarlos&nbsp;para&nbsp;filtrar&nbsp;el&nbsp;contenido&nbsp;de&nbsp;la&nbsp;grilla.</tt></dd></dl>
+
+<dl><dt><a name="SeptimoArte-editarActor"><strong>editarActor</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-filtrarActorNombre"><strong>filtrarActorNombre</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-filtrarActorPorPelicula"><strong>filtrarActorPorPelicula</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-filtrarPeliculaNombre"><strong>filtrarPeliculaNombre</strong></a>(self)</dt><dd><tt>Filtra&nbsp;por&nbsp;nombre&nbsp;de&nbsp;la&nbsp;película&nbsp;mientras&nbsp;se&nbsp;va&nbsp;escribiendo&nbsp;en&nbsp;el<br>
+lineEdit.</tt></dd></dl>
+
+<dl><dt><a name="SeptimoArte-filtrarPeliculaPorActor"><strong>filtrarPeliculaPorActor</strong></a>(self)</dt><dd><tt>Filtra&nbsp;las&nbsp;películas&nbsp;por&nbsp;el&nbsp;actor&nbsp;que&nbsp;participo&nbsp;en&nbsp;ellas&nbsp;luego&nbsp;de<br>
+seleccionar&nbsp;dicho&nbsp;actor&nbsp;desde&nbsp;el&nbsp;comboBox&nbsp;en&nbsp;el&nbsp;Tab&nbsp;de&nbsp;las&nbsp;Películas.</tt></dd></dl>
+
+<dl><dt><a name="SeptimoArte-infoClick"><strong>infoClick</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-loadActors"><strong>loadActors</strong></a>(self, parent)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-loadMovies"><strong>loadMovies</strong></a>(self, parent)</dt><dd><tt>Carga&nbsp;desde&nbsp;la&nbsp;base&nbsp;de&nbsp;datos&nbsp;todas&nbsp;las&nbsp;peliculas&nbsp;y&nbsp;su&nbsp;información&nbsp;a&nbsp;la<br>
+grilla&nbsp;del&nbsp;TabActores.</tt></dd></dl>
+
+<dl><dt><a name="SeptimoArte-loadTableData"><strong>loadTableData</strong></a>(self, parent)</dt><dd><tt>Llama&nbsp;a&nbsp;los&nbsp;métodos&nbsp;respectivos&nbsp;para&nbsp;llenar&nbsp;ambas&nbsp;grillas&nbsp;en&nbsp;la&nbsp;app.<br>
+Reconoce&nbsp;cual&nbsp;es&nbsp;la&nbsp;grilla&nbsp;que&nbsp;se&nbsp;quiere&nbsp;ver&nbsp;para&nbsp;llenarla&nbsp;al&nbsp;momento<br>
+de&nbsp;mostrarla.<br>
+Para&nbsp;reconocer&nbsp;la&nbsp;grilla&nbsp;verifica&nbsp;en&nbsp;que&nbsp;Tab&nbsp;se&nbsp;encuentra:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Primer&nbsp;Tab:&nbsp;Actores<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Segundo&nbsp;Tab:&nbsp;Películas</tt></dd></dl>
+
+<dl><dt><a name="SeptimoArte-nuevoActor"><strong>nuevoActor</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-setModel"><strong>setModel</strong></a>(self)</dt><dd><tt>Define&nbsp;el&nbsp;módelo&nbsp;de&nbsp;la&nbsp;grilla&nbsp;para&nbsp;trabajarla.</tt></dd></dl>
+
+<dl><dt><a name="SeptimoArte-setSignals"><strong>setSignals</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-setSourceModel"><strong>setSourceModel</strong></a>(self, model)</dt><dd><tt>Actualiza&nbsp;constantemente&nbsp;el&nbsp;origen&nbsp;de&nbsp;los&nbsp;datos&nbsp;para&nbsp;siempre&nbsp;tenerlos<br>
+al&nbsp;día&nbsp;así&nbsp;pudiendo&nbsp;buscar&nbsp;y&nbsp;mostrar&nbsp;solo&nbsp;algunos&nbsp;datos.<br>
+Además&nbsp;llama&nbsp;a&nbsp;las&nbsp;funciones&nbsp;que&nbsp;rellenan&nbsp;los&nbsp;comboBox&nbsp;de&nbsp;filtrado&nbsp;y<br>
+asigna&nbsp;el&nbsp;tamaño&nbsp;de&nbsp;las&nbsp;columnas&nbsp;a&nbsp;las&nbsp;grillas&nbsp;respectivas.<br>
+Trabaja&nbsp;solo&nbsp;en&nbsp;una&nbsp;grilla&nbsp;a&nbsp;la&nbsp;vez,&nbsp;para&nbsp;esto&nbsp;reconoce&nbsp;en&nbsp;que&nbsp;Tab&nbsp;se<br>
+encuentra&nbsp;para&nbsp;solamente&nbsp;modificar&nbsp;los&nbsp;datos&nbsp;de&nbsp;esa&nbsp;grilla.</tt></dd></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>columna_actor</strong> = ((u'Nombre', 150), (u'Cumplea<font color="#c040c0">\xf1</font>os', 130), (u'Genero', 90), (u'N<font color="#c040c0">\xb0</font> Pel<font color="#c040c0">\xed</font>culas', 90))</dl>
+
+<dl><dt><strong>columna_pelicula</strong> = ((u'Nombre', 200), (u'Estreno', 70), (u'Director', 150), (u'Pais', 80), (u'N<font color="#c040c0">\xb0</font> Actores', 90))</dl>
+
+<dl><dt><strong>staticMetaObject</strong> = &lt;PySide.QtCore.QMetaObject object&gt;</dl>
+
+<hr>
+Methods inherited from <a href="PySide.QtGui.html#QWidget">PySide.QtGui.QWidget</a>:<br>
+<dl><dt><a name="SeptimoArte-acceptDrops"><strong>acceptDrops</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-accessibleDescription"><strong>accessibleDescription</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-accessibleName"><strong>accessibleName</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-actionEvent"><strong>actionEvent</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-actions"><strong>actions</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-activateWindow"><strong>activateWindow</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-addAction"><strong>addAction</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-addActions"><strong>addActions</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-adjustSize"><strong>adjustSize</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-autoFillBackground"><strong>autoFillBackground</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-backgroundRole"><strong>backgroundRole</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-baseSize"><strong>baseSize</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-changeEvent"><strong>changeEvent</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-childAt"><strong>childAt</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-childrenRect"><strong>childrenRect</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-childrenRegion"><strong>childrenRegion</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-clearFocus"><strong>clearFocus</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-clearMask"><strong>clearMask</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-close"><strong>close</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-closeEvent"><strong>closeEvent</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-contentsMargins"><strong>contentsMargins</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-contentsRect"><strong>contentsRect</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-contextMenuEvent"><strong>contextMenuEvent</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-contextMenuPolicy"><strong>contextMenuPolicy</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-createWinId"><strong>createWinId</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-cursor"><strong>cursor</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-destroy"><strong>destroy</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-devType"><strong>devType</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-dragEnterEvent"><strong>dragEnterEvent</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-dragLeaveEvent"><strong>dragLeaveEvent</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-dragMoveEvent"><strong>dragMoveEvent</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-dropEvent"><strong>dropEvent</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-effectiveWinId"><strong>effectiveWinId</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-ensurePolished"><strong>ensurePolished</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-enterEvent"><strong>enterEvent</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-event"><strong>event</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-focusInEvent"><strong>focusInEvent</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-focusNextChild"><strong>focusNextChild</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-focusNextPrevChild"><strong>focusNextPrevChild</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-focusOutEvent"><strong>focusOutEvent</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-focusPolicy"><strong>focusPolicy</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-focusPreviousChild"><strong>focusPreviousChild</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-focusProxy"><strong>focusProxy</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-focusWidget"><strong>focusWidget</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-font"><strong>font</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-fontInfo"><strong>fontInfo</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-fontMetrics"><strong>fontMetrics</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-foregroundRole"><strong>foregroundRole</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-frameGeometry"><strong>frameGeometry</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-frameSize"><strong>frameSize</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-geometry"><strong>geometry</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-getContentsMargins"><strong>getContentsMargins</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-grabGesture"><strong>grabGesture</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-grabKeyboard"><strong>grabKeyboard</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-grabMouse"><strong>grabMouse</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-grabShortcut"><strong>grabShortcut</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-graphicsEffect"><strong>graphicsEffect</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-graphicsProxyWidget"><strong>graphicsProxyWidget</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-hasFocus"><strong>hasFocus</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-hasMouseTracking"><strong>hasMouseTracking</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-height"><strong>height</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-heightForWidth"><strong>heightForWidth</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-hide"><strong>hide</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-hideEvent"><strong>hideEvent</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-inputContext"><strong>inputContext</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-inputMethodEvent"><strong>inputMethodEvent</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-inputMethodHints"><strong>inputMethodHints</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-inputMethodQuery"><strong>inputMethodQuery</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-insertAction"><strong>insertAction</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-insertActions"><strong>insertActions</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-isActiveWindow"><strong>isActiveWindow</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-isAncestorOf"><strong>isAncestorOf</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-isEnabled"><strong>isEnabled</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-isEnabledTo"><strong>isEnabledTo</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-isFullScreen"><strong>isFullScreen</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-isHidden"><strong>isHidden</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-isLeftToRight"><strong>isLeftToRight</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-isMaximized"><strong>isMaximized</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-isMinimized"><strong>isMinimized</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-isModal"><strong>isModal</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-isRightToLeft"><strong>isRightToLeft</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-isVisible"><strong>isVisible</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-isVisibleTo"><strong>isVisibleTo</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-isWindow"><strong>isWindow</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-isWindowModified"><strong>isWindowModified</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-keyPressEvent"><strong>keyPressEvent</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-keyReleaseEvent"><strong>keyReleaseEvent</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-languageChange"><strong>languageChange</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-layout"><strong>layout</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-layoutDirection"><strong>layoutDirection</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-leaveEvent"><strong>leaveEvent</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-locale"><strong>locale</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-lower"><strong>lower</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-mapFrom"><strong>mapFrom</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-mapFromGlobal"><strong>mapFromGlobal</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-mapFromParent"><strong>mapFromParent</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-mapTo"><strong>mapTo</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-mapToGlobal"><strong>mapToGlobal</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-mapToParent"><strong>mapToParent</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-mask"><strong>mask</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-maximumHeight"><strong>maximumHeight</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-maximumSize"><strong>maximumSize</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-maximumWidth"><strong>maximumWidth</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-metric"><strong>metric</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-minimumHeight"><strong>minimumHeight</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-minimumSize"><strong>minimumSize</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-minimumSizeHint"><strong>minimumSizeHint</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-minimumWidth"><strong>minimumWidth</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-mouseDoubleClickEvent"><strong>mouseDoubleClickEvent</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-mouseMoveEvent"><strong>mouseMoveEvent</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-mousePressEvent"><strong>mousePressEvent</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-mouseReleaseEvent"><strong>mouseReleaseEvent</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-move"><strong>move</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-moveEvent"><strong>moveEvent</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-nativeParentWidget"><strong>nativeParentWidget</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-nextInFocusChain"><strong>nextInFocusChain</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-normalGeometry"><strong>normalGeometry</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-overrideWindowFlags"><strong>overrideWindowFlags</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-overrideWindowState"><strong>overrideWindowState</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-paintEngine"><strong>paintEngine</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-paintEvent"><strong>paintEvent</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-palette"><strong>palette</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-parentWidget"><strong>parentWidget</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-pos"><strong>pos</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-previousInFocusChain"><strong>previousInFocusChain</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-raise_"><strong>raise_</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-rect"><strong>rect</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-releaseKeyboard"><strong>releaseKeyboard</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-releaseMouse"><strong>releaseMouse</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-releaseShortcut"><strong>releaseShortcut</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-removeAction"><strong>removeAction</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-render"><strong>render</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-repaint"><strong>repaint</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-resetInputContext"><strong>resetInputContext</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-resize"><strong>resize</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-resizeEvent"><strong>resizeEvent</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-restoreGeometry"><strong>restoreGeometry</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-saveGeometry"><strong>saveGeometry</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-scroll"><strong>scroll</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-setAcceptDrops"><strong>setAcceptDrops</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-setAccessibleDescription"><strong>setAccessibleDescription</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-setAccessibleName"><strong>setAccessibleName</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-setAttribute"><strong>setAttribute</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-setAutoFillBackground"><strong>setAutoFillBackground</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-setBackgroundRole"><strong>setBackgroundRole</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-setBaseSize"><strong>setBaseSize</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-setContentsMargins"><strong>setContentsMargins</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-setContextMenuPolicy"><strong>setContextMenuPolicy</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-setCursor"><strong>setCursor</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-setDisabled"><strong>setDisabled</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-setEnabled"><strong>setEnabled</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-setFixedHeight"><strong>setFixedHeight</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-setFixedSize"><strong>setFixedSize</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-setFixedWidth"><strong>setFixedWidth</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-setFocus"><strong>setFocus</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-setFocusPolicy"><strong>setFocusPolicy</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-setFocusProxy"><strong>setFocusProxy</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-setFont"><strong>setFont</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-setForegroundRole"><strong>setForegroundRole</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-setGeometry"><strong>setGeometry</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-setGraphicsEffect"><strong>setGraphicsEffect</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-setHidden"><strong>setHidden</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-setInputContext"><strong>setInputContext</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-setInputMethodHints"><strong>setInputMethodHints</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-setLayout"><strong>setLayout</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-setLayoutDirection"><strong>setLayoutDirection</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-setLocale"><strong>setLocale</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-setMask"><strong>setMask</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-setMaximumHeight"><strong>setMaximumHeight</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-setMaximumSize"><strong>setMaximumSize</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-setMaximumWidth"><strong>setMaximumWidth</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-setMinimumHeight"><strong>setMinimumHeight</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-setMinimumSize"><strong>setMinimumSize</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-setMinimumWidth"><strong>setMinimumWidth</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-setMouseTracking"><strong>setMouseTracking</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-setPalette"><strong>setPalette</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-setParent"><strong>setParent</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-setShortcutAutoRepeat"><strong>setShortcutAutoRepeat</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-setShortcutEnabled"><strong>setShortcutEnabled</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-setSizeIncrement"><strong>setSizeIncrement</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-setSizePolicy"><strong>setSizePolicy</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-setStatusTip"><strong>setStatusTip</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-setStyle"><strong>setStyle</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-setStyleSheet"><strong>setStyleSheet</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-setToolTip"><strong>setToolTip</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-setUpdatesEnabled"><strong>setUpdatesEnabled</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-setVisible"><strong>setVisible</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-setWhatsThis"><strong>setWhatsThis</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-setWindowFilePath"><strong>setWindowFilePath</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-setWindowFlags"><strong>setWindowFlags</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-setWindowIcon"><strong>setWindowIcon</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-setWindowIconText"><strong>setWindowIconText</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-setWindowModality"><strong>setWindowModality</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-setWindowModified"><strong>setWindowModified</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-setWindowOpacity"><strong>setWindowOpacity</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-setWindowRole"><strong>setWindowRole</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-setWindowState"><strong>setWindowState</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-setWindowTitle"><strong>setWindowTitle</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-show"><strong>show</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-showEvent"><strong>showEvent</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-showFullScreen"><strong>showFullScreen</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-showMaximized"><strong>showMaximized</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-showMinimized"><strong>showMinimized</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-showNormal"><strong>showNormal</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-size"><strong>size</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-sizeHint"><strong>sizeHint</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-sizeIncrement"><strong>sizeIncrement</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-sizePolicy"><strong>sizePolicy</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-stackUnder"><strong>stackUnder</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-statusTip"><strong>statusTip</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-style"><strong>style</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-styleSheet"><strong>styleSheet</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-tabletEvent"><strong>tabletEvent</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-testAttribute"><strong>testAttribute</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-toolTip"><strong>toolTip</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-underMouse"><strong>underMouse</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-ungrabGesture"><strong>ungrabGesture</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-unsetCursor"><strong>unsetCursor</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-unsetLayoutDirection"><strong>unsetLayoutDirection</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-unsetLocale"><strong>unsetLocale</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-update"><strong>update</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-updateGeometry"><strong>updateGeometry</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-updateMicroFocus"><strong>updateMicroFocus</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-updatesEnabled"><strong>updatesEnabled</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-visibleRegion"><strong>visibleRegion</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-whatsThis"><strong>whatsThis</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-wheelEvent"><strong>wheelEvent</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-width"><strong>width</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-winId"><strong>winId</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-window"><strong>window</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-windowFilePath"><strong>windowFilePath</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-windowFlags"><strong>windowFlags</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-windowIcon"><strong>windowIcon</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-windowIconText"><strong>windowIconText</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-windowModality"><strong>windowModality</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-windowOpacity"><strong>windowOpacity</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-windowRole"><strong>windowRole</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-windowState"><strong>windowState</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-windowTitle"><strong>windowTitle</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-windowType"><strong>windowType</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-x"><strong>x</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-x11Info"><strong>x11Info</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-x11PictureHandle"><strong>x11PictureHandle</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-y"><strong>y</strong></a>(...)</dt></dl>
+
+<hr>
+Static methods inherited from <a href="PySide.QtGui.html#QWidget">PySide.QtGui.QWidget</a>:<br>
+<dl><dt><a name="SeptimoArte-keyboardGrabber"><strong>keyboardGrabber</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-mouseGrabber"><strong>mouseGrabber</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-setTabOrder"><strong>setTabOrder</strong></a>(...)</dt></dl>
+
+<hr>
+Data and other attributes inherited from <a href="PySide.QtGui.html#QWidget">PySide.QtGui.QWidget</a>:<br>
+<dl><dt><strong>DrawChildren</strong> = PySide.QtGui.QWidget.RenderFlag.DrawChildren</dl>
+
+<dl><dt><strong>DrawWindowBackground</strong> = PySide.QtGui.QWidget.RenderFlag.DrawWindowBackground</dl>
+
+<dl><dt><strong>IgnoreMask</strong> = PySide.QtGui.QWidget.RenderFlag.IgnoreMask</dl>
+
+<dl><dt><strong>RenderFlag</strong> = &lt;type 'PySide.QtGui.QWidget.RenderFlag'&gt;</dl>
+
+<dl><dt><strong>RenderFlags</strong> = &lt;type 'RenderFlags'&gt;</dl>
+
+<dl><dt><strong>__new__</strong> = &lt;built-in method __new__ of Shiboken.ObjectType object&gt;<dd><tt>T.<a href="#SeptimoArte-__new__">__new__</a>(S,&nbsp;...)&nbsp;-&gt;&nbsp;a&nbsp;new&nbsp;object&nbsp;with&nbsp;type&nbsp;S,&nbsp;a&nbsp;subtype&nbsp;of&nbsp;T</tt></dl>
+
+<dl><dt><strong>customContextMenuRequested</strong> = &lt;PySide.QtCore.Signal object&gt;<dd><tt>Signal</tt></dl>
+
+<hr>
+Methods inherited from <a href="PySide.QtCore.html#QObject">PySide.QtCore.QObject</a>:<br>
+<dl><dt><a name="SeptimoArte-__delattr__"><strong>__delattr__</strong></a>(...)</dt><dd><tt>x.<a href="#SeptimoArte-__delattr__">__delattr__</a>('name')&nbsp;&lt;==&gt;&nbsp;del&nbsp;x.name</tt></dd></dl>
+
+<dl><dt><a name="SeptimoArte-__getattribute__"><strong>__getattribute__</strong></a>(...)</dt><dd><tt>x.<a href="#SeptimoArte-__getattribute__">__getattribute__</a>('name')&nbsp;&lt;==&gt;&nbsp;x.name</tt></dd></dl>
+
+<dl><dt><a name="SeptimoArte-__setattr__"><strong>__setattr__</strong></a>(...)</dt><dd><tt>x.<a href="#SeptimoArte-__setattr__">__setattr__</a>('name',&nbsp;value)&nbsp;&lt;==&gt;&nbsp;x.name&nbsp;=&nbsp;value</tt></dd></dl>
+
+<dl><dt><a name="SeptimoArte-blockSignals"><strong>blockSignals</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-childEvent"><strong>childEvent</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-children"><strong>children</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-connectNotify"><strong>connectNotify</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-customEvent"><strong>customEvent</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-deleteLater"><strong>deleteLater</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-disconnectNotify"><strong>disconnectNotify</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-dumpObjectInfo"><strong>dumpObjectInfo</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-dumpObjectTree"><strong>dumpObjectTree</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-dynamicPropertyNames"><strong>dynamicPropertyNames</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-emit"><strong>emit</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-eventFilter"><strong>eventFilter</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-findChild"><strong>findChild</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-findChildren"><strong>findChildren</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-inherits"><strong>inherits</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-installEventFilter"><strong>installEventFilter</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-isWidgetType"><strong>isWidgetType</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-killTimer"><strong>killTimer</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-metaObject"><strong>metaObject</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-moveToThread"><strong>moveToThread</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-objectName"><strong>objectName</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-parent"><strong>parent</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-property"><strong>property</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-receivers"><strong>receivers</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-removeEventFilter"><strong>removeEventFilter</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-sender"><strong>sender</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-senderSignalIndex"><strong>senderSignalIndex</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-setObjectName"><strong>setObjectName</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-setProperty"><strong>setProperty</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-signalsBlocked"><strong>signalsBlocked</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-startTimer"><strong>startTimer</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-thread"><strong>thread</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-timerEvent"><strong>timerEvent</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-tr"><strong>tr</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-trUtf8"><strong>trUtf8</strong></a>(...)</dt></dl>
+
+<hr>
+Static methods inherited from <a href="PySide.QtCore.html#QObject">PySide.QtCore.QObject</a>:<br>
+<dl><dt><a name="SeptimoArte-connect"><strong>connect</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-disconnect"><strong>disconnect</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-registerUserData"><strong>registerUserData</strong></a>(...)</dt></dl>
+
+<hr>
+Data and other attributes inherited from <a href="PySide.QtCore.html#QObject">PySide.QtCore.QObject</a>:<br>
+<dl><dt><strong>destroyed</strong> = &lt;PySide.QtCore.Signal object&gt;<dd><tt>Signal</tt></dl>
+
+<hr>
+Methods inherited from <a href="PySide.QtGui.html#QPaintDevice">PySide.QtGui.QPaintDevice</a>:<br>
+<dl><dt><a name="SeptimoArte-colorCount"><strong>colorCount</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-depth"><strong>depth</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-heightMM"><strong>heightMM</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-logicalDpiX"><strong>logicalDpiX</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-logicalDpiY"><strong>logicalDpiY</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-numColors"><strong>numColors</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-paintingActive"><strong>paintingActive</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-physicalDpiX"><strong>physicalDpiX</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-physicalDpiY"><strong>physicalDpiY</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="SeptimoArte-widthMM"><strong>widthMM</strong></a>(...)</dt></dl>
+
+<hr>
+Data descriptors inherited from <a href="PySide.QtGui.html#QPaintDevice">PySide.QtGui.QPaintDevice</a>:<br>
+<dl><dt><strong>painters</strong></dt>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="PySide.QtGui.html#QPaintDevice">PySide.QtGui.QPaintDevice</a>:<br>
+<dl><dt><strong>PaintDeviceMetric</strong> = &lt;type 'PySide.QtGui.QPaintDevice.PaintDeviceMetric'&gt;</dl>
+
+<dl><dt><strong>PdmDepth</strong> = PySide.QtGui.QPaintDevice.PaintDeviceMetric.PdmDepth</dl>
+
+<dl><dt><strong>PdmDpiX</strong> = PySide.QtGui.QPaintDevice.PaintDeviceMetric.PdmDpiX</dl>
+
+<dl><dt><strong>PdmDpiY</strong> = PySide.QtGui.QPaintDevice.PaintDeviceMetric.PdmDpiY</dl>
+
+<dl><dt><strong>PdmHeight</strong> = PySide.QtGui.QPaintDevice.PaintDeviceMetric.PdmHeight</dl>
+
+<dl><dt><strong>PdmHeightMM</strong> = PySide.QtGui.QPaintDevice.PaintDeviceMetric.PdmHeightMM</dl>
+
+<dl><dt><strong>PdmNumColors</strong> = PySide.QtGui.QPaintDevice.PaintDeviceMetric.PdmNumColors</dl>
+
+<dl><dt><strong>PdmPhysicalDpiX</strong> = PySide.QtGui.QPaintDevice.PaintDeviceMetric.PdmPhysicalDpiX</dl>
+
+<dl><dt><strong>PdmPhysicalDpiY</strong> = PySide.QtGui.QPaintDevice.PaintDeviceMetric.PdmPhysicalDpiY</dl>
+
+<dl><dt><strong>PdmWidth</strong> = PySide.QtGui.QPaintDevice.PaintDeviceMetric.PdmWidth</dl>
+
+<dl><dt><strong>PdmWidthMM</strong> = PySide.QtGui.QPaintDevice.PaintDeviceMetric.PdmWidthMM</dl>
+
+<hr>
+Data descriptors inherited from Shiboken.Object:<br>
+<dl><dt><strong>__dict__</strong></dt>
+</dl>
+</td></tr></table></td></tr></table>
+</body></html>

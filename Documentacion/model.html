@@ -1,0 +1,244 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module model</title>
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>model</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/esteban/Documentos/INFO175/Proyecto Final/TrabajoFinal-INFO175/model.py">/home/esteban/Documentos/INFO175/Proyecto Final/TrabajoFinal-INFO175/model.py</a></font></td></tr></table>
+    <p><tt>#&nbsp;-*-&nbsp;coding:&nbsp;utf-8&nbsp;-*-</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="sqlite3.html">sqlite3</a><br>
+</td><td width="25%" valign=top></td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="__builtin__.html#object">__builtin__.object</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="model.html#Actor">Actor</a>
+</font></dt><dt><font face="helvetica, arial"><a href="model.html#ActorPelicula">ActorPelicula</a>
+</font></dt><dt><font face="helvetica, arial"><a href="model.html#Pelicula">Pelicula</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Actor">class <strong>Actor</strong></a>(<a href="__builtin__.html#object">__builtin__.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Clase&nbsp;que&nbsp;representa&nbsp;a&nbsp;la&nbsp;tabla&nbsp;actor<br>
+Una&nbsp;instancia&nbsp;de&nbsp;esta&nbsp;clase&nbsp;representa&nbsp;a&nbsp;una&nbsp;fila.<br>
+La&nbsp;instancia&nbsp;(objeto)&nbsp;puede&nbsp;estar&nbsp;en&nbsp;BD&nbsp;o&nbsp;no.<br>
+El&nbsp;método&nbsp;save&nbsp;de&nbsp;la&nbsp;clase&nbsp;inserta&nbsp;o&nbsp;actualiza&nbsp;el&nbsp;registro&nbsp;según<br>
+corresponda.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="Actor-__init__"><strong>__init__</strong></a>(self, id_actor<font color="#909090">=None</font>, nombre<font color="#909090">=None</font>, nacimiento<font color="#909090">=''</font>, genero<font color="#909090">=''</font>, imagen<font color="#909090">=''</font>)</dt></dl>
+
+<dl><dt><a name="Actor-delete"><strong>delete</strong></a>(self)</dt><dd><tt>Borra&nbsp;una&nbsp;fila&nbsp;de&nbsp;la&nbsp;base&nbsp;de&nbsp;datos.</tt></dd></dl>
+
+<dl><dt><a name="Actor-load"><strong>load</strong></a>(self, nombre<font color="#909090">=None</font>)</dt><dd><tt>Carga&nbsp;un&nbsp;actor&nbsp;de&nbsp;la&nbsp;base&nbsp;de&nbsp;datos&nbsp;por&nbsp;id_actor&nbsp;o&nbsp;nombre</tt></dd></dl>
+
+<dl><dt><a name="Actor-save"><strong>save</strong></a>(self)</dt><dd><tt>Guarda&nbsp;el&nbsp;objeto&nbsp;en&nbsp;la&nbsp;base&nbsp;de&nbsp;datos.<br>
+Utiliza&nbsp;un&nbsp;insert&nbsp;o&nbsp;update&nbsp;según&nbsp;Corresponda</tt></dd></dl>
+
+<hr>
+Class methods defined here:<br>
+<dl><dt><a name="Actor-actores"><strong>actores</strong></a>(cls, pkActor)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Busca&nbsp;en&nbsp;la&nbsp;base&nbsp;de&nbsp;datos&nbsp;la&nbsp;información&nbsp;de&nbsp;varios&nbsp;actores.<br>
+Desde&nbsp;una&nbsp;lista&nbsp;con&nbsp;los&nbsp;PK&nbsp;de&nbsp;los&nbsp;actores&nbsp;realiza&nbsp;la&nbsp;busqueda&nbsp;generando<br>
+una&nbsp;nueva&nbsp;lista&nbsp;con&nbsp;la&nbsp;info&nbsp;de&nbsp;dichos&nbsp;actores.<br>
+&nbsp;<br>
+@param&nbsp;pkActor:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Lista&nbsp;de&nbsp;los&nbsp;Promary&nbsp;Key&nbsp;de&nbsp;los&nbsp;actores&nbsp;a&nbsp;consultar.<br>
+@return&nbsp;data:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Lista&nbsp;donde&nbsp;esta&nbsp;almacenada&nbsp;la&nbsp;información&nbsp;de&nbsp;todos&nbsp;los&nbsp;actores<br>
+&nbsp;&nbsp;&nbsp;&nbsp;consultados.</tt></dd></dl>
+
+<dl><dt><a name="Actor-all"><strong>all</strong></a>(cls)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Método&nbsp;utlizado&nbsp;para&nbsp;obtener&nbsp;la&nbsp;colección&nbsp;completa&nbsp;de&nbsp;filas<br>
+en&nbsp;la&nbsp;tabla&nbsp;cursos.<br>
+Este&nbsp;método&nbsp;al&nbsp;ser&nbsp;de&nbsp;clase&nbsp;no&nbsp;necesita&nbsp;una&nbsp;instancia&nbsp;(objeto)<br>
+Sólo&nbsp;basta&nbsp;con&nbsp;invocaractoresDePelicula()lo&nbsp;desde&nbsp;la&nbsp;clase</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__tablename__</strong> = 'actor'</dl>
+
+<dl><dt><strong>genero</strong> = ''</dl>
+
+<dl><dt><strong>id_actor</strong> = None</dl>
+
+<dl><dt><strong>imagen</strong> = ''</dl>
+
+<dl><dt><strong>nacimiento</strong> = ''</dl>
+
+<dl><dt><strong>nombre</strong> = ''</dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="ActorPelicula">class <strong>ActorPelicula</strong></a>(<a href="__builtin__.html#object">__builtin__.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Clase&nbsp;que&nbsp;representa&nbsp;la&nbsp;tabla&nbsp;actor_en_pelicula.<br>
+Cada&nbsp;instancia&nbsp;de&nbsp;la&nbsp;clase&nbsp;representa&nbsp;una&nbsp;fila&nbsp;con&nbsp;su&nbsp;información.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="ActorPelicula-__init__"><strong>__init__</strong></a>(self, fk_id_actor<font color="#909090">=None</font>, fk_id_pelicula<font color="#909090">=None</font>, personaje<font color="#909090">=''</font>, descripcion<font color="#909090">=''</font>)</dt></dl>
+
+<dl><dt><a name="ActorPelicula-insert"><strong>insert</strong></a>(self)</dt><dd><tt>Crea&nbsp;una&nbsp;nueva&nbsp;fila&nbsp;con&nbsp;información&nbsp;en&nbsp;la&nbsp;base&nbsp;de&nbsp;datos</tt></dd></dl>
+
+<dl><dt><a name="ActorPelicula-load"><strong>load</strong></a>(self, fk_id_pelicula<font color="#909090">=None</font>)</dt><dd><tt>Carga&nbsp;una&nbsp;relación&nbsp;especifica.<br>
+Depende&nbsp;de&nbsp;que&nbsp;parametro&nbsp;reciba&nbsp;buscara&nbsp;actor&nbsp;para&nbsp;una&nbsp;pelicula&nbsp;o<br>
+pelicula&nbsp;de&nbsp;un&nbsp;actor.</tt></dd></dl>
+
+<dl><dt><a name="ActorPelicula-save"><strong>save</strong></a>(self)</dt><dd><tt>Guarda&nbsp;el&nbsp;objeto&nbsp;en&nbsp;la&nbsp;base&nbsp;de&nbsp;datos.<br>
+Utiliza&nbsp;un&nbsp;insert&nbsp;o&nbsp;update&nbsp;según&nbsp;Corresponda</tt></dd></dl>
+
+<hr>
+Class methods defined here:<br>
+<dl><dt><a name="ActorPelicula-actoresDeLaPelicula"><strong>actoresDeLaPelicula</strong></a>(cls, id_pelicula)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Retorna&nbsp;todas&nbsp;los&nbsp;Primary&nbsp;Key&nbsp;de&nbsp;los&nbsp;actores&nbsp;que&nbsp;participan&nbsp;en&nbsp;una<br>
+misma&nbsp;pelicula&nbsp;buscada.<br>
+&nbsp;<br>
+@param&nbsp;id_pelicula:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Primary&nbsp;Key&nbsp;de&nbsp;la&nbsp;película&nbsp;a&nbsp;la&nbsp;que&nbsp;le&nbsp;buscamos&nbsp;los&nbsp;actores.<br>
+@return&nbsp;data:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Tabla&nbsp;con&nbsp;los&nbsp;Primary&nbsp;Key&nbsp;de&nbsp;los&nbsp;actores&nbsp;participantes&nbsp;en&nbsp;la<br>
+&nbsp;&nbsp;&nbsp;&nbsp;película&nbsp;buscada.</tt></dd></dl>
+
+<dl><dt><a name="ActorPelicula-all"><strong>all</strong></a>(cls)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Método&nbsp;utlizado&nbsp;para&nbsp;obtener&nbsp;la&nbsp;colección&nbsp;completa&nbsp;de&nbsp;filas<br>
+en&nbsp;la&nbsp;tabla&nbsp;actor_en_pelicula.<br>
+Este&nbsp;método&nbsp;al&nbsp;ser&nbsp;de&nbsp;clase&nbsp;no&nbsp;necesita&nbsp;una&nbsp;instancia&nbsp;(objeto)<br>
+Sólo&nbsp;basta&nbsp;con&nbsp;invocarlo&nbsp;desde&nbsp;la&nbsp;clase</tt></dd></dl>
+
+<dl><dt><a name="ActorPelicula-peliculasDelActor"><strong>peliculasDelActor</strong></a>(cls, id_actor)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Retorna&nbsp;todas&nbsp;los&nbsp;Primary&nbsp;Key&nbsp;de&nbsp;las&nbsp;películas&nbsp;en&nbsp;las&nbsp;que&nbsp;participa&nbsp;el<br>
+un&nbsp;mismo&nbsp;actor.<br>
+&nbsp;<br>
+@param&nbsp;id_actor:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Primary&nbsp;Key&nbsp;del&nbsp;actor&nbsp;al&nbsp;que&nbsp;se&nbsp;le&nbsp;buscan&nbsp;las&nbsp;películas.<br>
+@return&nbsp;data:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Tabla&nbsp;con&nbsp;los&nbsp;Primary&nbsp;Key&nbsp;de&nbsp;las&nbsp;películas&nbsp;en&nbsp;las&nbsp;que&nbsp;participo&nbsp;el<br>
+&nbsp;&nbsp;&nbsp;&nbsp;actor&nbsp;al&nbsp;que&nbsp;se&nbsp;le&nbsp;buscaban&nbsp;las&nbsp;películas.</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__tablename__</strong> = 'actor_en_pelicula'</dl>
+
+<dl><dt><strong>descripcion</strong> = ''</dl>
+
+<dl><dt><strong>fk_id_actor</strong> = None</dl>
+
+<dl><dt><strong>fk_id_pelicula</strong> = None</dl>
+
+<dl><dt><strong>personaje</strong> = ''</dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Pelicula">class <strong>Pelicula</strong></a>(<a href="__builtin__.html#object">__builtin__.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Clase&nbsp;que&nbsp;representa&nbsp;a&nbsp;la&nbsp;tabla&nbsp;pelicula<br>
+Una&nbsp;instancia&nbsp;de&nbsp;esta&nbsp;clase&nbsp;representa&nbsp;a&nbsp;una&nbsp;fila.<br>
+La&nbsp;instancia&nbsp;(objeto)&nbsp;puede&nbsp;estar&nbsp;en&nbsp;BD&nbsp;o&nbsp;no.<br>
+El&nbsp;método&nbsp;save&nbsp;de&nbsp;la&nbsp;clase&nbsp;inserta&nbsp;o&nbsp;actualiza&nbsp;el&nbsp;registro&nbsp;según<br>
+corresponda.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="Pelicula-__init__"><strong>__init__</strong></a>(self, id_pelicula<font color="#909090">=None</font>, nombre<font color="#909090">=''</font>, estreno<font color="#909090">=''</font>, director<font color="#909090">=''</font>, pais<font color="#909090">=''</font>, actores<font color="#909090">=''</font>, descripcion<font color="#909090">=''</font>)</dt></dl>
+
+<dl><dt><a name="Pelicula-insert"><strong>insert</strong></a>(self)</dt><dd><tt>Crea&nbsp;una&nbsp;nueva&nbsp;fila&nbsp;con&nbsp;información&nbsp;en&nbsp;la&nbsp;base&nbsp;de&nbsp;datos</tt></dd></dl>
+
+<dl><dt><a name="Pelicula-load"><strong>load</strong></a>(self, nombre<font color="#909090">=None</font>)</dt><dd><tt>Carga&nbsp;la&nbsp;información&nbsp;completa&nbsp;de&nbsp;una&nbsp;pelicula&nbsp;desde&nbsp;la&nbsp;base&nbsp;de&nbsp;datos<br>
+a&nbsp;través&nbsp;del&nbsp;nombre&nbsp;e&nbsp;esta.</tt></dd></dl>
+
+<dl><dt><a name="Pelicula-save"><strong>save</strong></a>(self)</dt><dd><tt>Guarda&nbsp;el&nbsp;objeto&nbsp;en&nbsp;la&nbsp;base&nbsp;de&nbsp;datos.<br>
+Utiliza&nbsp;un&nbsp;insert&nbsp;o&nbsp;update&nbsp;según&nbsp;Corresponda</tt></dd></dl>
+
+<hr>
+Class methods defined here:<br>
+<dl><dt><a name="Pelicula-all"><strong>all</strong></a>(cls)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Método&nbsp;utlizado&nbsp;para&nbsp;obtener&nbsp;la&nbsp;colección&nbsp;completa&nbsp;de&nbsp;filas<br>
+en&nbsp;la&nbsp;tabla&nbsp;pelicula.<br>
+Este&nbsp;método&nbsp;al&nbsp;ser&nbsp;de&nbsp;clase&nbsp;no&nbsp;necesita&nbsp;una&nbsp;instancia&nbsp;(objeto)<br>
+Sólo&nbsp;basta&nbsp;con&nbsp;invocarlo&nbsp;desde&nbsp;la&nbsp;clase</tt></dd></dl>
+
+<dl><dt><a name="Pelicula-peliculas"><strong>peliculas</strong></a>(cls, pkPeliculas)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Busca&nbsp;en&nbsp;la&nbsp;base&nbsp;de&nbsp;datos&nbsp;la&nbsp;información&nbsp;de&nbsp;varias&nbsp;películas.<br>
+Desde&nbsp;una&nbsp;lista&nbsp;con&nbsp;los&nbsp;PK&nbsp;de&nbsp;las&nbsp;películas&nbsp;realiza&nbsp;la&nbsp;busqueda<br>
+generando&nbsp;una&nbsp;nueva&nbsp;lista&nbsp;con&nbsp;la&nbsp;info&nbsp;de&nbsp;dichas&nbsp;películas.<br>
+&nbsp;<br>
+@param&nbsp;pkPeliculas:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Lista&nbsp;de&nbsp;los&nbsp;Primary&nbsp;Key&nbsp;de&nbsp;las&nbsp;películas&nbsp;a&nbsp;consultar.<br>
+@return&nbsp;data:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Lista&nbsp;donde&nbsp;esta&nbsp;almacenada&nbsp;la&nbsp;información&nbsp;de&nbsp;todas&nbsp;las&nbsp;películas<br>
+&nbsp;&nbsp;&nbsp;&nbsp;consultadas.</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__tablename__</strong> = 'pelicula'</dl>
+
+<dl><dt><strong>actores</strong> = ''</dl>
+
+<dl><dt><strong>descripcion</strong> = ''</dl>
+
+<dl><dt><strong>director</strong> = ''</dl>
+
+<dl><dt><strong>estreno</strong> = ''</dl>
+
+<dl><dt><strong>id_pelicula</strong> = None</dl>
+
+<dl><dt><strong>nombre</strong> = ''</dl>
+
+<dl><dt><strong>pais</strong> = ''</dl>
+
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-connect"><strong>connect</strong></a>()</dt><dd><tt>Retorna&nbsp;una&nbsp;conexión&nbsp;con&nbsp;la&nbsp;base&nbsp;de&nbsp;datos</tt></dd></dl>
+ <dl><dt><a name="-last_id"><strong>last_id</strong></a>(conn)</dt><dd><tt>Retorna&nbsp;la&nbsp;última&nbsp;primary&nbsp;key&nbsp;generada&nbsp;en&nbsp;la&nbsp;base&nbsp;de&nbsp;datos</tt></dd></dl>
+</td></tr></table>
+</body></html>
