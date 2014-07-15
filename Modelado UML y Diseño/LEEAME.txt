@@ -1,0 +1,3 @@
+Diseño de diagramas realizados con software DIA
+Estos Modelos, fueron realizados antes de programación del software,
+por lo tanto existe variación en los nombres y/o mas métodos.
