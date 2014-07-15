@@ -1,0 +1,9 @@
+Los usuarios permitidos en nuestra app son los siguientes:
+
+Usuario--------Contraseña
+ admin		admin
+ Esteban	Huenuman
+ Manuel		Lavin
+ Yarithza	Bustos
+ Alexis		Garcia
+ Cristian	Rojas
