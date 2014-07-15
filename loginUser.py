@@ -1,0 +1,92 @@
+# -*- coding: utf-8 -*-
+
+# Form implementation generated from reading ui file 'loginUser.ui'
+#
+# Created: Mon Jul 14 21:36:19 2014
+#      by: pyside-uic 0.2.13 running on PySide 1.1.1
+#
+# WARNING! All changes made in this file will be lost!
+
+from PySide import QtCore, QtGui
+
+class Ui_LoginUser(object):
+    def setupUi(self, LoginUser):
+        LoginUser.setObjectName("LoginUser")
+        LoginUser.resize(320, 198)
+        LoginUser.setMinimumSize(QtCore.QSize(320, 198))
+        LoginUser.setMaximumSize(QtCore.QSize(320, 198))
+        self.verticalLayout = QtGui.QVBoxLayout(LoginUser)
+        self.verticalLayout.setObjectName("verticalLayout")
+        self.instLabel = QtGui.QLabel(LoginUser)
+        self.instLabel.setAlignment(QtCore.Qt.AlignCenter)
+        self.instLabel.setObjectName("instLabel")
+        self.verticalLayout.addWidget(self.instLabel)
+        self.widget = QtGui.QWidget(LoginUser)
+        self.widget.setLayoutDirection(QtCore.Qt.LeftToRight)
+        self.widget.setObjectName("widget")
+        self.gridLayout = QtGui.QGridLayout(self.widget)
+        self.gridLayout.setContentsMargins(0, 0, 0, 0)
+        self.gridLayout.setObjectName("gridLayout")
+        self.passLabel = QtGui.QLabel(self.widget)
+        self.passLabel.setObjectName("passLabel")
+        self.gridLayout.addWidget(self.passLabel, 1, 0, 1, 1)
+        self.passLineEdit = QtGui.QLineEdit(self.widget)
+        self.passLineEdit.setMaximumSize(QtCore.QSize(150, 16777215))
+        self.passLineEdit.setLayoutDirection(QtCore.Qt.LeftToRight)
+        self.passLineEdit.setInputMethodHints(QtCore.Qt.ImhHiddenText|QtCore.Qt.ImhNoAutoUppercase|QtCore.Qt.ImhNoPredictiveText)
+        self.passLineEdit.setEchoMode(QtGui.QLineEdit.Password)
+        self.passLineEdit.setReadOnly(False)
+        self.passLineEdit.setObjectName("passLineEdit")
+        self.gridLayout.addWidget(self.passLineEdit, 1, 2, 1, 1)
+        self.usuarioLabel = QtGui.QLabel(self.widget)
+        self.usuarioLabel.setObjectName("usuarioLabel")
+        self.gridLayout.addWidget(self.usuarioLabel, 0, 0, 1, 1)
+        self.usuarioLineEdit = QtGui.QLineEdit(self.widget)
+        self.usuarioLineEdit.setMaximumSize(QtCore.QSize(150, 16777215))
+        self.usuarioLineEdit.setLayoutDirection(QtCore.Qt.LeftToRight)
+        self.usuarioLineEdit.setObjectName("usuarioLineEdit")
+        self.gridLayout.addWidget(self.usuarioLineEdit, 0, 2, 1, 1)
+        spacerItem = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
+        self.gridLayout.addItem(spacerItem, 0, 1, 1, 1)
+        spacerItem1 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
+        self.gridLayout.addItem(spacerItem1, 1, 1, 1, 1)
+        self.verticalLayout.addWidget(self.widget)
+        self.widget_2 = QtGui.QWidget(LoginUser)
+        self.widget_2.setObjectName("widget_2")
+        self.horizontalLayout = QtGui.QHBoxLayout(self.widget_2)
+        self.horizontalLayout.setContentsMargins(0, 0, 0, 0)
+        self.horizontalLayout.setObjectName("horizontalLayout")
+        spacerItem2 = QtGui.QSpacerItem(27, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
+        self.horizontalLayout.addItem(spacerItem2)
+        self.loginButton = QtGui.QPushButton(self.widget_2)
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        font.setWeight(75)
+        font.setBold(True)
+        self.loginButton.setFont(font)
+        self.loginButton.setObjectName("loginButton")
+        self.horizontalLayout.addWidget(self.loginButton)
+        spacerItem3 = QtGui.QSpacerItem(27, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
+        self.horizontalLayout.addItem(spacerItem3)
+        self.cancelarButton = QtGui.QPushButton(self.widget_2)
+        self.cancelarButton.setObjectName("cancelarButton")
+        self.horizontalLayout.addWidget(self.cancelarButton)
+        spacerItem4 = QtGui.QSpacerItem(27, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
+        self.horizontalLayout.addItem(spacerItem4)
+        self.verticalLayout.addWidget(self.widget_2)
+
+        self.retranslateUi(LoginUser)
+        QtCore.QObject.connect(self.cancelarButton, QtCore.SIGNAL("clicked()"), LoginUser.close)
+        QtCore.QMetaObject.connectSlotsByName(LoginUser)
+        LoginUser.setTabOrder(self.usuarioLineEdit, self.passLineEdit)
+        LoginUser.setTabOrder(self.passLineEdit, self.loginButton)
+        LoginUser.setTabOrder(self.loginButton, self.cancelarButton)
+
+    def retranslateUi(self, LoginUser):
+        LoginUser.setWindowTitle(QtGui.QApplication.translate("LoginUser", "Confirmación de Identidad", None, QtGui.QApplication.UnicodeUTF8))
+        self.instLabel.setText(QtGui.QApplication.translate("LoginUser", "Ingrese sus datos para verificar el ingreso. ", None, QtGui.QApplication.UnicodeUTF8))
+        self.passLabel.setText(QtGui.QApplication.translate("LoginUser", "Contraseña", None, QtGui.QApplication.UnicodeUTF8))
+        self.usuarioLabel.setText(QtGui.QApplication.translate("LoginUser", "Usuario", None, QtGui.QApplication.UnicodeUTF8))
+        self.loginButton.setText(QtGui.QApplication.translate("LoginUser", "&Login", None, QtGui.QApplication.UnicodeUTF8))
+        self.cancelarButton.setText(QtGui.QApplication.translate("LoginUser", "&Cancelar", None, QtGui.QApplication.UnicodeUTF8))
+
